@@ -1,0 +1,139 @@
+<div data-page="index" class="page">
+    <div class="page-content">
+        <div sw-role="cell" sw-mode="y" class="h100p">
+            <div sw-role="cell" sw-layout="fit" class="quick-start-body quick-start-body-height bg-gray h100p">
+                <!--<div sw-role="cell" class="nav-menu-box hide h100p">-->
+                    <!--<div sw-role="cell" sw-mode="y" class="nav-menu">-->
+                        <!--<div sw-role="cell" sw-valign="middle" class="user-bar padding-t-15">-->
+                            <!--<div sw-role="cell" class="margin-l-10 margin-r-10">-->
+                                <!--<a href="userCenter/userCenter.html" data-view=".view-main" class="item-link close-popup">-->
+                                    <!--<div class="avatar"></div>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;<div sw-role="cell" sw-mode="y" sw-layout="fit" id="quickUserInfoRender"></div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<script type="textml" id="userInfoTpl">&ndash;&gt;-->
+								<!--&lt;!&ndash;<div sw-role="cell" sw-valign="middle">&ndash;&gt;-->
+									<!--&lt;!&ndash;<span class="font-16">{{userText}}</span>&ndash;&gt;-->
+									<!--&lt;!&ndash;<span class="margin-l-10">({{userCode}})</span>&ndash;&gt;-->
+								<!--&lt;!&ndash;</div>&ndash;&gt;-->
+								<!--&lt;!&ndash;<div sw-role="cell" class="font-12">&ndash;&gt;-->
+									<!--&lt;!&ndash;生产采集员(H0010)&ndash;&gt;-->
+								<!--&lt;!&ndash;</div>&ndash;&gt;-->
+							<!--&lt;!&ndash;</script>&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<div sw-role="cell" sw-layout="fit" class="overflow">-->
+                            <!--<div class="list-block accordion-list w100p nav-list">-->
+                                <!--&lt;!&ndash; 导航菜单 &ndash;&gt;-->
+                                <!--&lt;!&ndash;<ul id="navMenuRender"></ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash; 导航菜单模板 &ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;<script type="text/html" id="navMenuTpl">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li class="accordion-item accordion-item-expanded phone-style position-relative">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="favor-setting">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<button sw-role="cell" sw-valign="middle" class="button" id="setFavorBtn">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<i class="ion ion-android-settings"></i>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<span>设置收藏</span>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<a href="#" class="item-content item-link {{#if url}}close-popup{{/if}}">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<div class="item-inner">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<div class="item-title">个人收藏</div>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="accordion-item-content">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<div class="content-block">&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;{{#favorMenu}}&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;<li><a href="{{#if url}}{{url}}{{else}}#{{/if}}" data-view=".view-main" data-id="{{menuCode}}"  data-title="{{menuText}}" data-url="{{url}}"&ndash;&gt;-->
+                                                           <!--&lt;!&ndash;data-module-code={{module.moduleCode}}  data-module-group-code={{module.moduleGroupCode}} data-module-type={{module.moduleType}}&ndash;&gt;-->
+                                                           <!--&lt;!&ndash;class="running-link item-link close-popup">{{menuText}}</a></li>&ndash;&gt;-->
+                                                    <!--&lt;!&ndash;{{/favorMenu}}&ndash;&gt;-->
+                                                <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+                                    <!--&lt;!&ndash;{{#navMenu}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<li {{#if children}} class="accordion-item {{#js_compare " this.id=='1' "}}phone-style accordion-item-expanded{{/js_compare}}"{{/if}}>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<a {{#if url}} href="{{data.url}}" data-view=".view-main" {{else}} href="#" {{/if}} class="item-content item-link {{#if data.url}}close-popup{{/if}}">&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="item-inner">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="item-title">{{data.menuText}}</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{#if children}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;<div class="accordion-item-content">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;<div class="content-block">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;{{#children}}&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<li><a href="{{#if data.url}}{{data.url}}{{else}}#{{/if}}" data-view=".view-main" data-id="{{data.menuCode}}"  data-title="{{data.menuText}}" data-url="{{data.url}}"   data-module-code={{data.module.moduleCode}}  data-module-group-code={{data.module.moduleGroupCode}} data-module-type={{data.module.moduleType}}&ndash;&gt;-->
+                                                       <!--&lt;!&ndash;class="running-link item-link close-popup">{{data.menuText}}</a></li>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;{{/children}}&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{/if}}&ndash;&gt;-->
+                                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                                    <!--&lt;!&ndash;{{/navMenu}}&ndash;&gt;-->
+                                <!--&lt;!&ndash;</script>&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div sw-role="cell" sw-mode="x-equal" class="nav-menu-btm">-->
+                            <!--<div sw-role="cell">-->
+                                <!--<a href="#" sw-role="cell" sw-valign="middle" sw-align="center" sw-layout="fit" class="button"  id="btnLoginOut"><i class="ion ion-power"></i><span>退出登录</span> </a>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;-->
+                            <!--<div sw-role="cell" sw-valign="middle">-->
+                                <!--<a href="#" sw-role="cell" sw-valign="middle" sw-align="center" sw-layout="fit" class="button"><i class="ion ion-refresh"></i><span>退出登录</span></a>-->
+                            <!--</div>-->
+                            <!--&ndash;&gt;-->
+                            <!--<div sw-role="cell" sw-valign="middle">-->
+                                <!--<a href="#" sw-role="cell" sw-valign="middle" sw-align="center" sw-layout="fit" class="button" id="fullScreenButton"> <i class="ion ion-android-contract"></i><span>最大化</span></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div sw-role="cell" sw-layout="fit" class="quick-start-menus quick-start-body-height">
+                    <div class="favor-menu h100p w100p" id="quickStartFavor">
+                        <div class="quick-menus h100p overflow-auto">
+                            <div sw-role="cell" sw-align="center" sw-valign="middle" class="edit-favor-title">编辑模式</div>
+                            <div sw-role="cell" sw-mode="wrap" id="quickStartMenus"></div>
+                            <script type="text/html" id="quickStartMenuTpl">
+                                {{#each favorMenu}}
+                                <div class="quick-menu-item-box tests" favor-id="{{menuCode}}" data-module-code={{module.moduleCode}}  data-module-group-code={{module.moduleGroupCode}} data-module-type={{module.moduleType}} >
+                                    <div class="quick-menu-item">
+                                        <a href="views/{{url}}" data-view=".view-main" sw-role="cell" sw-valign="middle" sw-align="center" data-id="{{menuCode}}"  data-title="{{menuText}}" data-url="{{url}}"
+                                          class="running-link quick-menu-item-inner button close-popup">
+                                           {{menuText}}
+                                        </a>
+                                        <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="del-favor">
+                                            <i class="ion ion-close-circled"></i>
+                                        </a>
+                                        <a href="#" class="favor-move-box">
+												<span sw-role="cell" sw-align="center" sw-valign="middle" class="favor-move">
+													<i class="ion ion-drag"></i>
+												</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </script>
+                            <div sw-role="cell" sw-align="center" sw-valign="middle" class="edit-favor-btm"> <a href="#" sw-valign="middle" class="button button-fill color-cyan add-favor margin-r-10"><i class="ion ion-plus margin-r-10 margin-l-5"></i>添加</a><a href="#" class="button button-fill edit-favor-complete quick-favor-complete">完成编辑</a></div>
+                        </div>
+                        <!-- Floating Action Button -->
+                        <div class="speed-dial tablet-style">
+                            <a href="#" class="floating-button"> <i class="icon icon-plus"></i><i class="icon icon-close"></i></a>
+                            <div class="speed-dial-buttons">
+                                <a href="#" class="add-favor"> <i class="icon icon-plus"></i>
+
+                                </a>
+                                <a href="#" class="edit-favor"> <i class="ion ion-edit"></i>
+
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

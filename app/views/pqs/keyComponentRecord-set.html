@@ -1,0 +1,158 @@
+<div data-page="pqs_keyComponentRecord-set" class="page">
+    <!--右侧收展按钮-->
+    <div class="toggle-right-btn pinch"></div>
+    <div class="page-content">
+        <div class="search-panel">
+            <div class="button-box padding-t-20 padding-b-20 bg-gray">
+                <!--<p class="font-18 margin-t-5 margin-b-15  margin-l-15">筛选条件</p>-->
+                <div class="big-item" sw-mode='x-equal'>
+                    <a href="#" class="topbar-button button button-fill color-cyan btn-return" name="btnRetrun"  data-i18n="COMMON.B.BACK"></a>
+                    <!--<a href="#" class="topbar-button button button-fill color-cyan btn-return" name="btnRetrun">返回</a>-->
+                </div>
+                <div class="big-item" sw-mode='x-equal'>
+                    <a href="#" class="topbar-button button button-fill color-cyan" name="btnSearch" data-i18n="COMMON.B.SEARCH"></a>
+                    <!--<a href="#" class="topbar-button button button-fill color-cyan" name="btnSearch">查询</a>-->
+                </div>
+            </div>
+            <form id="keypartRecordSetForm">
+                <!--工作中心-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="COMMON.T.WORKCENTER">
+                        </label>
+                        <div class="w100p">
+                            <select  class="form-select-control" id="allWorkCenterListRender_keypart" name="workCenterCode"></select>
+                            <script type="text/html" id="allWorkCenterListTpl_keypart">
+                                <option value='' data-i18n="COMMON.T.ALL"></option>
+                                {{#each allWorkCenterList}}
+                                <option value={{workCenterCode}}>{{workCenterText}}</option>
+                                {{/each}}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--站点-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="COMMON.T.STATION">
+                        </label>
+                        <div class="w100p" id="stationListContainer_keypart">
+                            <select class="form-select-control" id="stationListRender_keypart" name="stationCode">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <script type="text/html" id="stationListTpl_keypart">
+                            <option value='' data-i18n="COMMON.T.ALL"></option>
+                            {{#each stationList}}
+                            <option value={{stationCode}}>{{stationText}}</option>
+                            {{/each}}
+                        </script>
+                    </div>
+                </div>
+                <!--产品标识号-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.PRODUCT_NO">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="productNum" class="form-control text-upperCase" maxlength="40" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--产品ID-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <!--<label class="form-label" data-i18n="">-->
+                        <label class="form-label">
+                            产品ID
+                        </label>
+                        <div class="w100p">
+                            <input type="text" class="form-control text-upperCase" maxlength="40" name="productId" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--物料编码-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.MATERIAL_NO">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" class="form-control text-upperCase" maxlength="20" name="keypartCode" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--物料描述-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.MATERIAL_DESC">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" class="form-control" maxlength="60" name="keypartText" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--供应商编码-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.SUPPLIER_CODE"></label>
+                        <!--<label class="form-label">-->
+                            <!--供应商编码-->
+                        <!--</label>-->
+                        <div class="w100p">
+                            <input type="text" class="form-control text-upperCase" maxlength="20" name="supplierCode" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--供应商描述-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.SUPPLIER_DESC">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" class="form-control" maxlength="60" name="supplierText" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--批次号-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.BATCH">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" class="form-control text-upperCase" name="lotNum" maxlength="60" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--触发时间-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="KEYPART.T.SCAN_TIME"></label>
+                        <!--<label class="form-label">-->
+                        <!--扫描时间-->
+                        <!--</label>-->
+                        <div class="w100p">
+                            <input type="text" name="scanTime" class="datetime form-control" data-i18n-placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <!--状态-->
+                <div class="form-check-radio">
+                    <div class="row  no-gutter" >
+                        <div class="col-100 form-group" sw-mode='x-equal'>
+                            <label class="form-label w60" data-i18n="COMMON.T.STATUS">
+                            </label>
+                            <div class="w100p form-control " sw-valign="middle" sw-role="cell">
+                                <input type="checkbox" name="statusECode" value="1" /><label data-i18n="COMMON.T.SUCCESS"></label>
+                                <input type="checkbox" name="statusECode" value="2" /><label data-i18n="COMMON.T.EXCEPTION"></label>
+                                <input type="checkbox" name="statusECode" value="0" /><label data-i18n="COMMON.T.MISSING"></label>
+                                <!--<input type="checkbox" name="statusECode" value="1"><label>成功</label>-->
+                                <!--<input type="checkbox" name="statusECode" value="2"><label>异常</label>-->
+                                <!--<input type="checkbox" name="statusECode" value="0"><label>漏扫</label>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

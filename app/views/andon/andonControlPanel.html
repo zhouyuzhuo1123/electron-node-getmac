@@ -1,0 +1,60 @@
+<!-- ANDON总控面板 -->
+<div data-page="andonControlPanel" class="page bg-gray">
+	<div class="page-content">
+		<div class="h60 sw-flex-row-reverse " sw-role="cell">
+			<div class="h50p button-group button-group-radius margin-r-55">
+				<button class="w70 active simple font-bold" data-i18n="ANDON.B.SIMPLE"></button>
+				<button class="w70 detail font-bold" data-i18n="ANDON.B.DETAIL"></button>
+			</div>
+		</div>
+		<div class="swiper-container andonListPanel" >
+			<div class="swiper-pagination" id="andonControlSwiperPg"></div>
+			<div id="andonControlSwiperRender" class="swiper-wrapper"></div>
+			<script type="text/html" id="andonControlSwiperTpl">
+				{{#each groupAndons}}
+					<div class="swiper-slide">
+						<div class="row andon-swiper-box">
+							{{#each this}}
+							<div class="col-100 tablet-25 andon-list-item">
+								<a  type="andon" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" andonTypeCode="{{andonType.andonTypeCode}}" typeText="{{andonType.typeText}}" templateCode="templateCode" {{#unless lastTriggerTime}}statusECode=3{{else}}statusECode=1{{/unless}}  switchOnDateTime="{{lastTriggerTime}}" accumulatedTime="{{accumulatedTime||0}}" class="andon-item-button running-link button" touchColor="{{andonType.touchColor}}" normalColor="{{andonType.normalColor}}" >
+									<div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle" class="andon-list-item-txt">{{andonType.typeText}}</div>
+									<div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-36"></div>
+								</a>
+								<div class="andon-list-item-info hidden">
+									<dl>
+										<dt data-i18n="ANDON.T.TOUCH_TIME"></dt>
+										<dd name="lastTriggerTimePart">{{lastTriggerTimePart}}</dd>
+									</dl>
+									<dl>
+										<dt data-i18n="ANDON.T.TOUCH_COUNT"></dt>
+										<dd name="triggerCount">{{triggerCount||0}}</dd>
+									</dl>
+									<dl>
+										<dt data-i18n="ANDON.T.TOUCH_TOTAL_TIME"></dt>
+										<dd name="accumulatedTime">{{accumulatedTime||0}}</dd>
+									</dl>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				{{/each}}
+			</script>
+		</div>
+		<div class="h40"></div>
+	</div>
+</div>
+
+
+<!--
+		<div>
+			<div sw-role="cell" class="andon-detail-switch">
+			<span class="font-16 padding-r-10">简易</span>
+			<label class="label-switch">
+			  <input type="checkbox">
+			  <div class="checkbox"></div>
+			</label>
+			<span class="font-16 padding-r-10">详情</span>
+		  </div>
+		</div>
+		-->

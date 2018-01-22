@@ -1,0 +1,101 @@
+<!-- 作业指导书开始 -->
+<div id="sopWorkInstruction" data-page="pcs_sopWorkInstruction" class="page bg-gray sopWork assemblyIst">
+	<div class="page-content"  sw-role="cell" sw-mode="y" class="h100p">
+        <div id="sopWorkInstrRender" sw-role="cell" sw-layout='fit' sw-mode="y" class="h100p"></div>
+
+        <!-- 作业指导书上面部分模板开始 -->
+        <script type="text/template" id="sopWorkInsTpl">
+                <!-- 顶部区域开始 -->
+                <div class="top" sw-role="cell" sw-role="cell" sw-mode="x">
+                    <div class="left" sw-role="cell">
+                        <div class="left-wrap w100p"  sw-role="cell" sw-mode="x">
+                            <div class="item-box" sw-role="cell">
+                                <label>当前规格</label>
+                                <div class="display-panel" sw-role="cell" sw-valign='middle'>{{js "this.carDescription ? this.carDescription : '--'"}}</div>
+                            </div>
+                            <div class="item-box" sw-role="cell">
+                                <label>剩余数量</label>
+                                <div class="display-panel txt-red {{#if remainingQuantity}}warn-shine{{/if}}" sw-role="cell" sw-valign='middle' sw-align='center'>{{js "this.remainingQuantity ? this.remainingQuantity : '--'"}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right" sw-role="cell" sw-mode="x">
+                        <div class="item-box txt-large" sw-role="cell">
+                            <label>产品标识号</label>
+                            <div class="display-panel" sw-role="cell" sw-valign='middle'>{{js "this.productNum ? this.productNum.slice(-6) : '--'"}}</div>
+                        </div>
+                        <div class="item-box txt-large" sw-role="cell">
+                            <label>生产管理号</label>
+                            <div class="display-panel" sw-role="cell" sw-valign='middle'>{{js "this.productNum ? this.productNum.slice(-5) : '--'"}}</div>
+                        </div>
+                        <div class="item-box txt-middle" sw-role="cell">
+                            <label>备注</label>
+                            <div class="display-panel u-remark" sw-role="cell" sw-valign={{js "this.remark ? 'top' : 'middle'"}} title={{js "this.remark ? this.remark : '--'"}}>{{js "this.remark ? this.remark : '--'"}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 顶部区域结束 -->
+
+                <div class="content" sw-role="cell" sw-mode="x" id="sopWorkInstr_btRender"></div>
+            </div>
+        </script>
+         <!-- 作业指导书上面部分模板结束 -->
+
+        <!-- 作业指导书底部区域开始 -->
+        <script type="text/template" id="sopWorkInsTpl_bt">
+                <div class="left">
+                    <div class="left-wrap w100p h100p" sw-role="cell" sw-mode="x">
+                        <div class="tab-buttons" sw-role="cell" sw-mode="y">
+                            <a href="#tab1" sw-role="cell" class="tab-link active button" sw-flex='1' sw-valign='middle' sw-align='center'>基本描述</a>
+                            <a href="#tab2" sw-role="cell" class="tab-link button" sw-flex='1' sw-valign='middle' sw-align='center'>详细描述</a>
+                        </div>
+                        <div class="tabs" sw-role="cell" sw-layout="fit" >
+                            <div id="tab1" class="tab active">
+                                <div class="item-box">
+                                    <label>步骤描述</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>{{stepText}}</div>
+                                </div>
+                                <div class="item-box">
+                                    <label>注意事项</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>{{attensionText}}</div>
+                                </div>
+                                <div class="item-box">
+                                    <label>条件</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>{{variableFormula}}</div>
+                                </div>
+                            </div>
+                            <div id="tab2" class="tab">
+                                <div class="item-box">
+                                    <label>详细描述</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>{{detailText}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="right-wrap">
+                        <div class="indicate">
+                            <div class="indicate-item">
+                                <label>倒计时：</label>
+                                <span class="red time_cont">{{interval}}</span>
+                            </div>
+                            <div class="indicate-item">
+                                <label>步骤：</label>
+                                <span class="red now-step">--</span>/<span class="step-total">--</span>
+                            </div>
+                        </div>
+                        {{#if fileAccessPath}}
+                            <div class="img-wrap"  style="background-image: url({{fileAccessPath}})"></div>
+                        {{else}}
+                            <div class="img-wrap no-img"></div>
+                        {{/if}}
+                            <!-- <div class="fullscreen-ico"></div> -->
+                    </div>
+                </div>
+        </script>
+        <!--作业指导书底部区域结束 -->
+
+	</div>
+</div>
+

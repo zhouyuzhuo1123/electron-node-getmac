@@ -1,0 +1,28 @@
+<!-- ANDON明细页面 -->
+<div data-page="andonIndex" class="page bg-gray">
+	<div class="page-content ">
+		<label id="cs"></label>
+		<div class="swiper-container h100p" id="andonSwiper">
+			<div class="swiper-pagination" id="andonSwiperPg"></div>
+			<div id="andonSwiperRender" class="swiper-wrapper"></div>
+			<script type="text/html" id="andonSwiperTpl">
+				{{#each newAndons}}
+					<div class="swiper-slide" style="width: 320px;">
+						<div class="row andon-swiper-box">
+							{{#each this}}
+							<div class="col-33 andon-list-item">
+								<a  type="andon" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" andonCode="{{andonCode}}" andonText="{{andonText}}" touchTimeLong="{{touchTimeLong}}" workUnitCode="{{workUnitCode}}" templateCode="templateCode" statusECode="{{statusECode}}" class="running-link button" ">
+									<div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle" class="andon-list-item-txt"><span>{{typeText}}</span></div>
+									<div class="dashed-line"></div>
+									<div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-36 h60">{{touchTimeStr}}</div>
+								</a>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				{{/each}}
+			</script>
+		</div>
+	</div>
+</div>
+

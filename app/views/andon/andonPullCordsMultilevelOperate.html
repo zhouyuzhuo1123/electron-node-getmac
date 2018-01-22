@@ -1,0 +1,172 @@
+<!-- 多层拉绳ANDON开始 -->
+<div data-page="andon_andonPullCordsMultilevelOperate" class="page bg-gray andonPullCordsMultilevelOperate">
+
+
+
+	<div class="page-content" id="andonPullCordsMultilevelOperate">
+		<!-- 左侧菜单栏开始 -->
+		<div class="left">
+			<div class="pullRope">
+				<div class="pullRopeTop">
+					<label>拉绳按钮</label>
+				</div>
+				<!-- 点击框 -->
+				<div class="andon-switch" :style="setBackground(pullAndon)" title="点击触发拉绳" @click="triggerSwitch"></div>
+			</div>
+
+			<div class="nowStation" :title=nowWorkStation.stationText v-html=compStation></div>
+
+			<!-- 工位列表开始 -->
+			<div class="list-block">
+				<ul>
+					<template v-for="(item, index) in workStationList">
+						<li>
+							<label class="label-radio item-content">
+								  <input v-if="index === 0" checked=checked type="radio" name="my-radio" v-bind:value=item.stationCode v-on:change=changeStation(item)>
+								  <input v-else type="radio" name="my-radio" v-bind:value=item.stationCode v-on:change=changeStation(item)>
+
+								  <div class="item-media">
+									<i class="icon icon-form-radio"></i>
+								  </div>
+								  <div class="item-inner">
+									<div class="item-title" :title=item.stationText>{{item.stationText}}</div>
+								  </div>
+							</label>
+						</li>
+					</template>
+				</ul>
+			</div>
+			<!-- 工位列表结束 -->
+		</div>
+		<!-- 左侧菜单栏结束 -->
+
+		<!-- 右侧功能区开始 -->
+		<div class="swiper-custom rightContent">
+
+			<!-- 顶部菜单 -->
+			<div class="andon-title">
+				<template v-if="isMainShow === true">
+					<div class="tabs on">拉绳首页</div>
+				</template>
+				<template v-else>
+					<template v-if="showAll === true">
+						<div class="tabs on f-cp">全部</div>
+						<div @click="showAllEvent(false)" class="tabs f-ml5 f-cp">异常</div>
+					</template>
+					<template v-else>
+						<div @click="showAllEvent(true)" class="tabs f-cp">全部</div>
+						<div class="tabs f-ml5 f-cp on">异常</div>
+					</template>
+				</template>
+				<div class="andon-return" v-show="isMainShow === false && singleLevel === false" @click="returnIndex">返回上层</div>
+			</div>
+			<!-- 顶部菜单结束 -->
+
+			<div class="container">
+				<!-- 主幻灯片contain开始 -->
+				<div class="swiper-container main-wrapper"  v-show="isMainShow === true">
+					<div class="swiper-wrapper">
+						<template v-if="compMainModule.length > 0">
+							<!-- 单个幻灯片开始 -->
+							<template v-for="mainPage in compMainModule">
+								<div class="swiper-slide">
+
+									<!-- 弹性盒子容器开始 -->
+									<div class="swiper-box">
+										<template v-for="item in mainPage">
+
+											<!-- 单个安灯开始  -->
+											<div class="item-simple">
+												<a class="enter-container">
+													<div v-if="item.touchAble" class="enter-box" :style="setBackground(item)" @click="switchToSec(item)">
+														<div class="item-text" :style="item.andonText | setFontSize">{{item.andonText}}</div>
+														<div class="conut">({{item.childAndonTouchedCount}}/{{item.childAndonCount}})</div>
+													</div>
+													<div v-else class="enter-box andon-disabled">
+														<div class="item-text" :style="item.andonText | setFontSize">{{item.andonText}}</div>
+														<div class="conut">(需要先触发拉绳)</div>
+													</div>
+								
+													<div v-if="item.touchAble === true" class="enter" @click="switchToSec(item)">进入详情</div>
+													<div v-else class="enter f-cna">暂无详情</div>
+												</a>
+											</div>
+											<!-- 单个安灯结束 -->
+										</template>
+									</div>
+									<!-- 弹性盒子容器结束 -->
+								</div>
+							</template>
+							<!-- 单个幻灯片结束 -->
+						</template>
+						<template v-else>
+							<div class="no-info w100p"></div>
+						</template>
+					</div>
+					<div class="swiper-pagination"></div> <!--分页容器-->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<!-- 主幻灯片contain结束 -->
+
+				<!-- 次幻灯片contain开始 -->
+				<div class="swiper-container sec-wrapper" v-show="isMainShow === false">
+					<div class="swiper-wrapper">
+						<template v-if="compSecModule.length > 0">
+
+							<!-- 单个幻灯片开始 -->
+							<template v-for="secPage in compSecModule">
+								<div class="swiper-slide">
+
+									<!-- 弹性盒子容器开始 -->
+									<div class="swiper-box">	
+										<template v-for="(item, index) in secPage">
+
+											<!-- 单个安灯开始  -->
+											<div class="item-simple">
+												<a class="enter-container" :style="setBackground(item)">
+													<div v-if="item.touchAble && item.status == 1" class="sec-item-text">
+														<div class="item-text" :style="item.andonText | setFontSize">{{item.andonText}}</div>
+														<div  class="item-time">{{item.finalTime}}</div>
+													</div>
+													<div v-else class="sec-item-text"  @click="andonOperate(item)">
+														<div class="item-text" :style="item.andonText | setFontSize">{{item.andonText}}</div>
+													</div>
+
+													<template v-if="item.touchAble">
+														<div v-if="item.status == 3" class="operate">
+															<b @click="andonOperate(item)" class="operate-item f-cp">ANDON</b>
+														</div>
+														<div v-else-if="item.status == 1" class="operate">
+															<b @click="andonOperate(item)" class="operate-item f-cp">关闭</b>
+															<b v-if="item.extendFeatures" @click="showOperate($event, item)" class="operate-item f-cp f-ml10">操作</b>
+														</div>
+													</template>
+													<template v-else>
+														<div class="operate">
+															<b class="w80p f-cna">不可操作</b>
+														</div>
+													</template>
+												</a>
+												</div>
+										</template>
+									</div>
+									<!-- 弹性盒子容器结束 -->
+								</div>
+							</template>
+							<!-- 单个幻灯片结束 -->					
+						</template>
+						<template v-else>
+							<div class="no-info w100p"></div>
+						</template>
+					</div>
+					<div class="swiper-pagination"></div> <!--分页容器-->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<!-- 次灯片contain结束 -->
+			</div>
+		</div>
+		<!-- 右侧功能区结束 -->
+	</div>
+</div>

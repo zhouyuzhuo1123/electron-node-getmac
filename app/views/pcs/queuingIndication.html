@@ -1,0 +1,182 @@
+<!-- 队列指示 -->
+<div data-page="pcs_queuingIndication" class="page bg-gray queuingInd assemblyIst">
+    <!--模板渲染容器-->
+    <div id="queueIndRender" class="page-content overflow-hidden" sw-role="cell" sw-mode="y" class="h100p">
+        <div class="content" sw-role="cell">
+            <div class="content-wrap" sw-role="cell" sw-mode="x">
+                <div class="left-panel" sw-role="cell" sw-layout="fit">
+                    <div class="left-wrap w100p h100p">
+                        <div class="img-wrap no-img"></div>
+                    </div> 
+                </div>
+                <div class="right-panel" sw-role="cell">
+                    <div class="right-wrap" sw-role="cell" sw-mode="y">
+                        <div sw-role="cell" sw-flex="3" sw-mode="x" class="left-row1">
+                            <div class="item-box" sw-role="cell">
+                                <label>当前规格</label>
+                                <div class="display-panel" sw-role="cell" sw-valign="middle">--</div>
+                            </div>
+                            <div class="item-box" sw-role="cell">
+                                <label>剩余数量</label>
+                                <div class="display-panel txt-red  warn-shine" sw-role="cell" sw-valign="middle" sw-align="center">--</div>
+                            </div>
+                        </div>
+                        <div sw-role="cell" sw-flex="2" sw-mode="x" class="left-row2">
+
+                            <div class="item-box txt-middle" sw-role="cell">
+                                <label>特性</label>
+                                <div class="display-panel" sw-role="cell" sw-valign="middle">--</div>
+                            </div>
+
+                            <div class="item-box txt-middle" sw-role="cell">
+                                <label>特性</label>
+                                <div class="display-panel" sw-role="cell" sw-valign="middle">--</div>
+                            </div>
+
+                        </div>
+                        <div sw-role="cell" sw-flex="2" class="left-row3">
+                            <div class="item-box txt-middle" sw-role="cell">
+                                <label>产品标识号</label>
+                                <div class="display-panel productNum" sw-role="cell" sw-valign="middle">--</div>
+                            </div>
+                            <div class="item-box txt-middle" sw-role="cell">
+                                <label>生产管理号</label>
+                                <div class="display-panel" sw-role="cell" sw-valign="middle">--</div>
+                            </div>
+                            <div class="item-box" sw-role="cell">
+                                <label></label>
+                                <div class="display-panel btn-wrap" sw-role="cell">
+                                    <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="button button-fill w100p h100p confirmBtn">上线确认</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div sw-role="cell" sw-flex="2" class="left-row4">
+                            <div class="item-box" sw-role="cell">
+                                <label>备注</label>
+                                <div class="display-panel" sw-role="cell" sw-valign="middle">-- </div>
+                            </div>
+                        </div>
+                        <a href="#" class="floating-button color-pink more-history open-picker" data-picker=".picker-1">
+                            历史<br>记录
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom" sw-role="cell">
+            <table class="queue-table w100p h100p">
+                <thead>
+                    <tr>
+                        <th>产品顺序</th>
+                        <th>后续规格</th>
+                        <th>数量</th>
+                        <th>标识号明细</th>
+                        <th>生产管理号</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <a href="#" class="floating-button color-pink more-history open-picker" data-picker=".popup-public">
+        历史<br>记录
+    </a>
+
+    <!--渲染模板-->
+    <script type="text/html" id="queueIndTpl">
+        <div class="content" sw-role="cell">
+            <div class="content-wrap" sw-role="cell" sw-mode="x">
+                <div class="left-panel" sw-role="cell" sw-layout="fit">
+                    <div class="left-wrap w100p h100p">
+                        {{#if picture}}
+                        <div class="img-wrap" style="background-image: url('{{picture}}')"></div>
+                        {{else}}
+                        <div class="img-wrap no-img"></div>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="right-panel" sw-role="cell">
+                    <div class="right-wrap" sw-role="cell" sw-mode="y">
+                        <div sw-role="cell" sw-flex='3' sw-mode="x" class="left-row1">
+                            <div class="item-box" sw-role="cell">
+                                <label>当前规格</label>
+                                <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                    {{#if carDescription}} {{carDescription}} {{else}} -- {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-box" sw-role="cell">
+                                <label>剩余数量</label>
+                                <div class="display-panel txt-red {{#if warnShineFlag}} warn-shine{{/if}}" sw-role="cell" sw-valign='middle' sw-align='center'>{{remainingQuantity}}</div>
+                            </div>
+                        </div>
+                        <div sw-role="cell" sw-flex='2' sw-mode="x" class="left-row2">
+                            {{#each configEnums}}
+                            <div class="item-box txt-middle" sw-role="cell">
+                                <label>{{configText}}</label>
+                                <div class="display-panel" sw-role="cell" sw-valign='middle'>{{valueText}}</div>
+                            </div>
+                            {{/each}}
+                        </div>
+                        <div sw-role="cell" sw-flex='2' class="left-row3">
+                            <div class="item-box txt-large" sw-role="cell">
+                                <label>产品标识号</label>
+                                <div class="display-panel productNum" sw-role="cell" sw-valign='middle' productnum="{{productNum}}">
+                                    {{#if productNumFormat}} {{productNumFormat}} {{else}} -- {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-box txt-large" sw-role="cell">
+                                <label>生产管理号</label>
+                                <div class="display-panel productId" sw-role="cell" sw-valign='middle' productid="{{productId}}">
+                                    {{#if productIdFormat}} {{productIdFormat}} {{else}} -- {{/if}}
+                                </div>
+                            </div>
+                            <div class="item-box" sw-role="cell">
+                                <label></label>
+                                <div class="display-panel btn-wrap" sw-role="cell">
+                                    <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="button button-fill w100p h100p confirmBtn">上线确认</a>
+                                    <!-- <button class="w100p confirmBtn">上线确认</button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div sw-role="cell" sw-flex='3' class="left-row4">
+                            <div class="item-box" sw-role="cell">
+                                <label>备注</label>
+                                <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                    {{#if remark}} {{remark}} {{else}} {{#if productNumFormat}} {{else}} -- {{/if}} {{/if}}
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom" sw-role="cell">
+            <!-- 底部表格开始  -->
+            <table class="queue-table w100p h100p">
+                <thead>
+                    <tr>
+                        <th>产品顺序</th>
+                        <th>后续规格</th>
+                        <th>数量</th>
+                        <th>标识号明细</th>
+                        <th>生产管理号</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each productionQueues}}
+                    <tr>
+                        <td>{{@index+1}}</td>
+                        <td>{{carDescription}}</td>
+                        <td>{{remainingQuantity}}</td>
+                        <td>{{productNumFormat}}</td>
+                        <td>{{productIdFormat}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            <!-- 底部表格结束  -->
+        </div>
+    </script>
+</div>

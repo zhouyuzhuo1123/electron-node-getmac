@@ -1,0 +1,183 @@
+<div data-page="pqs_defectList-set" class="page">
+    <!--右侧收展按钮-->
+    <div class="toggle-right-btn pinch"></div>
+    <div class="page-content">
+        <div class="search-panel">
+            <div class="button-box padding-t-20 padding-b-20 bg-gray">
+                <!--<p class="font-18 margin-t-5 margin-b-15  margin-l-15">筛选条件</p>-->
+                <div class="big-item" sw-mode='x-equal'>
+                    <a href="#" class="topbar-button button button-fill color-cyan btn-return" name="btnRetrun">返回</a>
+                </div>
+                <div class="big-item" sw-mode='x-equal'>
+                    <a href="#" class="topbar-button button button-fill color-cyan btn-submit" name="btnSubmit">确定</a>
+                </div>
+            </div>
+
+            <form id="defectListSetForm">
+                <input type="text" name="index" style="display: none;">
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            产品标识
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="productIdentifyNumber" class="form-control" value="12345678901234567">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            检验站点
+                        </label>
+                        <div class="w100p">
+                            <!--name="workUnitText"-->
+                            <select class="form-select-control" name="workUnitText">
+                                <option value="T00">T00</option>
+                                <option value="T01">T01</option>
+                                <option value="T02">T02</option>
+                                <option value="T03">T03</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            检验时间
+                        </label>
+                        <div class="w100p">
+                            <input type="date" name="checkTime" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            部位编号
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="partNumber" class="form-control" value="1234567890">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            部位描述
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="partDescription" class="form-control" value="一二三四五六七八九十一二">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            方位编号
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="directionNumber" class="form-control" value="12">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            方位描述
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="directionName" class="form-control" value="一二">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            缺陷类型编号
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="defectTypeNumber" class="form-control" value="123456">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            缺陷类型描述
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="defectTypeDescription" class="form-control" value="一二三四五六七八九十">
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            责任类型
+                        </label>
+                        <div class="w100p">
+                            <!--name="responseType"-->
+                            <select class="form-select-control" name="responseType">
+                                <option value="1">所有</option>
+                                <option value="2">A</option>
+                                <option value="3">B</option>
+                                <option value="4">C</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label">
+                            责任方
+                        </label>
+                        <div class="w100p">
+                            <!--name="reponsePartyType"-->
+                            <select class="form-select-control" name="reponsePartyType">
+                                <option value="1">所有</option>
+                                <option value="2">T01</option>
+                                <option value="3">T02</option>
+                                <option value="4">T03</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check-radio">
+                    <div class="row  no-gutter" >
+                        <div class="col-100 form-group" sw-mode='x-equal'>
+                            <label class="form-label w60">
+                                严重程度
+                            </label>
+                            <div class="w100p form-control " sw-valign="middle" sw-role="cell">
+                                <!--<input type="checkbox" name="type"  value="1"><label>A</label>-->
+                                <!--<input type="checkbox" name="type"  value="2"><label>B</label>-->
+                                <!--<input type="checkbox" name="type"  value="3"><label>C</label>-->
+                                <div class="radio-wrap"><input type="radio" name="seriousLevel" id="seriousLevel-1" value="A"><label for="seriousLevel-1">A</label></div>
+                                <div class="radio-wrap"><input type="radio" name="seriousLevel" id="seriousLevel-2" value="B"><label for="seriousLevel-2">B</label></div>
+                                <div class="radio-wrap"><input type="radio" name="seriousLevel" id="seriousLevel-3" value="C"><label for="seriousLevel-3">C</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-check-radio">
+                    <div class="row  no-gutter" >
+                        <div class="col-100 form-group" sw-mode='x-equal'>
+                            <label class="form-label w60">
+                                缺陷状态
+                            </label>
+                            <div class="w100p form-control " sw-valign="middle" sw-role="cell">
+                                <!--<input type="checkbox" name="type"  value="1"><label>待返修</label>-->
+                                <!--<input type="checkbox" name="type"  value="2"><label>待确认</label>-->
+                                <!--<input type="checkbox" name="type"  value="3"><label>待关闭</label>-->
+                                <div class="radio-wrap"><input type="radio" name="defect-state" id="defect-state-1" value="1"><label for="defect-state-1">待返修</label></div>
+                                <div class="radio-wrap"><input type="radio" name="defect-state" id="defect-state-2" value="1"><label for="defect-state-2">待确认</label></div>
+                                <div class="radio-wrap"><input type="radio" name="defect-state" id="defect-state-3" value="1"><label for="defect-state-3">关闭</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

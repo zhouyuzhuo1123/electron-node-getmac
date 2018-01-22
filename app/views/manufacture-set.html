@@ -1,0 +1,62 @@
+<div data-page="manufactureSet" class="page bg-gray">
+    <div class="page-content">
+        <div sw-role="cell" sw-mode="y" class="h100p">
+            <div sw-role="cell" sw-valign="middle" class="padding-15">
+                <div sw-role="cell" class="font-16" sw-layout="fit">添加内容</div>
+                <div sw-role="cell">
+                    <div sw-role="cell" class="margin-r-10">
+                        <a href="#" class="button button-fill color-gray close-panel">返回</a>
+                    </div>
+                    <div sw-role="cell">
+                        <a href="#" class="button button-fill color-cyan" id="setFormOK">确定</a>
+                    </div>
+                </div>
+            </div>
+            <div sw-role="cell" sw-mode="y" sw-layout="fit" class="bg-white">
+                <div sw-role="cell" class="padding-15">已添加</div>
+                <div sw-role="cell" sw-mode="y" class="padding-l-15 padding-r-15 set-form-add-list" id="setFormAdded">
+                    
+                </div>
+                <script type="text/template7" id="setFormAddedTpl">
+                    {{#each list}}
+                    {{#if title}}
+                    <div sw-role="cell" class="set-form-added-item on">
+                        <div sw-role="cell" sw-align="center" sw-valign="middle" class="set-form-added-move">
+                            <i class="ion ion-android-menu"></i>
+                        </div>
+                        <div sw-role="cell" sw-layout="fit" class="set-form-added-body">
+                            <div sw-role="cell" sw-layout="fit" sw-valign="middle" class="set-form-title">{{title}}</div>
+                            <a sw-role="cell" sw-align="center" sw-valign="middle" href="#" class="button set-form-remove" data-id="{{id}}"><i class="ion"></i></a>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div sw-role="cell" class="set-form-added-item"></div>
+                    {{/if}}
+                    {{/each}}
+                </script>
+                <script type="text/template7" id="setFormAddedItemTpl">
+                    <div sw-role="cell" sw-align="center" sw-valign="middle" class="set-form-added-move">
+                        <i class="ion ion-android-menu"></i>
+                    </div>
+                    <div sw-role="cell" sw-layout="fit" class="set-form-added-body">
+                        <div sw-role="cell" sw-layout="fit" sw-valign="middle" class="set-form-title">{{title}}</div>
+                        <a sw-role="cell" sw-align="center" sw-valign="middle" href="#" class="button set-form-remove" data-id="{{id}}"><i class="ion"></i></a>
+                    </div>
+                </script>
+
+                <div sw-role="cell" class="padding-15">未添加</div>
+                <div sw-role="cell" sw-mode="y" sw-layout="fit" class="overflow-auto">
+                    <div sw-role="cell" sw-mode="y" class="padding-l-15 padding-r-15" id="setFormList"></div>
+                    <script type="text/template7" id="setFormListTpl">
+                        {{#each list}}
+                        <div sw-role="cell" class="set-form-item">
+                            <div sw-role="cell" sw-layout="fit" sw-valign="middle" class="set-form-title">{{title}}</div>
+                            <a sw-role="cell" sw-align="center" sw-valign="middle" href="#" class="{{#if isFavor}}off{{else}}button{{/if}} set-form-add" data-id="{{id}}"><i class="ion"></i></a>
+                        </div>
+                        {{/each}}
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

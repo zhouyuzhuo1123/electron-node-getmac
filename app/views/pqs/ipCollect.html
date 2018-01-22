@@ -1,0 +1,89 @@
+<!-- 关重件采集ipCollect.html -->
+<div data-page="pqs_ipCollect" class="page bg-gray ipCollect">
+	<div class="page-content" id="ipCollect">
+
+		<!-- 下侧弹出框 -->
+		<div class="picker-modal picker-1 ipCollect-paner-body  picker-info">
+			<div class="toolbar">
+				<div class="toolbar-inner">
+					<div class="left"></div>
+					<div class="right"><a href="#" class="close-picker">关闭</a></div>
+				</div>
+			</div>
+			<div class="picker-modal-inner">
+				<div class="content-block content-block-edit">
+					<h4 data-i18n="KEYPART.T.COLLECT_INFO_MODIFY"></h4>
+					<div class="infoTake">
+						<div class="infoTake-component">
+							<label class="labelName" data-i18n="KEYPART.T.MATERIAL_NO">物料编码</label>
+							<input type="text" id="ipCollect-component" readonly="readonly" disabled="disabled" />
+						</div>
+						<div class="infoTake-component" id="supplierListRender">
+							<!--<label>供应商</label>
+                            <input type="text" id="kcopc-supplier"/>-->
+						</div>
+						<div class="infoTake-component">
+							<label data-i18n="KEYPART.T.BATCH" class="labelName">批次</label>
+							<input type="text" id="ipCollect-batchNumber" class="text-upperCase" />
+						</div>
+						<div class="content-block-button">
+							<button class="close-picker ipCollect-cancel">取消</button>
+							<button class="ipCollect-confirm">确认</button>
+						</div>
+					</div>
+				</div>
+				<script type="text/html" id="supplierListTpl">
+					<label data-i18n="KEYPART.T.SUPPLIER" class="labelName infoTakkLabel"></label>
+					<div class="supplierDiv">
+						{{#each supplierList}}
+						<div class="radio-supplier" style="float:left">
+							<input type="radio" name="provider" id={{supplierCode}} value={{supplierCode}}>
+							<label for={{supplierCode}}>
+								<span>{{supplierText}}</span>
+								<i class="radio-ico"></i>
+							</label>
+						</div>
+						{{/each}}
+					</div>
+				</script>
+			</div>
+		</div>
+
+		<div class="ipCollect-head">
+			<div class="ipCollect-head-panel" sw-role="cell">
+				<div class="ipCollect-head-query">
+					<div class="ipCollect-head-query-num1">
+						<label data-i18n="KEYPART.T.PRODUCT_NO">产品标识</label>
+						<input type="text" id="productmark" class="text-upperCase" />
+					</div>
+					<div class="ipCollect-head-query-num1">
+						<label data-i18n="KEYPART.T.BATCH_NO">批次条码</label>
+						<input type="text" id="lotBarCodeInput" class="text-upperCase" />
+					</div>
+				</div>
+				<div class="ipCollect-head-button">
+					<div class="ipCollect-head-number">
+						<span title="未采集量" class="ipCollect-head-num1" id="currentNum">0</span>/
+						<span title="总量" class="ipCollect-head-num2" id="allNum">0</span>
+					</div>
+					<div class="ipCollect-head-button-submit">
+						<a href="#" class="gray-button head-confirm button button-fill button-raised disabled" data-i18n="COMMON.B.SAVE">保存</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="table-panel">
+			<table class="table-bordered table-striped ipCollect-table" id="ipCollect-example">
+				<thead>
+					<th data-i18n="KEYPART.T.MATERIAL_NO">物料编码</th>
+					<th data-i18n="KEYPART.T.SUPPLIER">供应商</th>
+					<th data-i18n="KEYPART.T.BATCH">批次</th>
+					<th data-i18n="KEYPART.T.MATERIAL_DESC">物料描述</th>
+					<th data-i18n="KEYPART.T.SUPPLIER_DESC">供应商描述</th>
+					<th data-i18n="COMMON.T.OPERATION">操作</th>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+

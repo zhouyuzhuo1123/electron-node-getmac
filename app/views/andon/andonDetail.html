@@ -1,0 +1,95 @@
+<!-- ANDON明细页面 -->
+<div data-page="andonDetail" class="page bg-gray">
+	<div class="page-content">
+		<div data-pagination=".swiper-pagination" data-pagination-hide="true" class="swiper-container swiper-init ks-demo-slider swiper-container-horizontal">
+			<div class="swiper-pagination swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span></div>
+			<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-3224px, 0px, 0px);">
+			    <!-- Tabs, tabs wrapper -->
+			  	<div class="tabs swiper-slide" style="width: 806px;" id="andonRender"></div>
+			  	<script type="text/html" id="andonTpl">
+					<div id="{{andonTypeCode}}" class="swiper-slide page-content tab" normalColor="{{normalColor}}" touchColor="{{touchColor}}">
+						<div class="content-block">
+							<div sw-role="cell" sw-mode="y" class="h100p">
+								<div sw-role="cell"  sw-mode="wrap">
+									{{#each andons}}
+									<div class="quick-menu-item-box" favor-id="{{andonCode}}"  >
+										<div class="quick-menu-item">
+											<a  type="andon" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y"  data-view=".view-main" sw-role="cell" sw-valign="middle" sw-align="center" andonCode="{{andonCode}}" andonText="{{andonText}}"  statusCode="{{statusCode}}" class="running-link quick-menu-item-inner button close-popup" ">
+												<div sw-role="cell">{{andonText}}</div>
+											</a>
+											<a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="del-favor">
+												<i class="ion ion-close-circled"></i>
+											</a>
+											<a href="#" class="favor-move-box">
+												<span sw-role="cell" sw-align="center" sw-valign="middle" class="favor-move">
+													<i class="ion ion-drag"></i>
+												</span>
+											</a>
+										</div>
+									</div>
+									{{/each}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="toolbar tabbar">
+		<div class="toolbar-inner" id="andonTypeTabRender">
+		</div>
+		<script type="text/html" id="andonTypeTabTpl">
+			{{#each list}}
+			<a href="#{{andonTypeCode}}" class="tab-link" andonTypeCode="{{andonTypeCode}}" touchColor="{{touchColor}}" normalColor="{{normalColor}}">{{typeText}}</a>
+			{{/each}}
+		</script>
+	</div> -->
+
+
+<!-- <div class="swiper-slide" style="width: 806px;">Slide 1</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 2</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 3</div>
+		          <div class="swiper-slide swiper-slide-prev" style="width: 806px;">Slide 4</div>
+		          <div class="swiper-slide swiper-slide-active" style="width: 806px;">Slide 5</div>
+		          <div class="swiper-slide swiper-slide-next" style="width: 806px;">Slide 6</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 7</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 8</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 9</div>
+		          <div class="swiper-slide" style="width: 806px;">Slide 10</div> -->
+<!-- Tabs, tabs wrapper -->
+<!-- <div class="tabs" id="andonRender">
+
+
+</div> -->
+<!-- <script type="text/html" id="andonTpl">
+        {{#each list}}
+        <div id="{{andonTypeCode}}" class="page-content tab" normalColor="{{normalColor}}" touchColor="{{touchColor}}">
+            <div class="content-block">
+                <div sw-role="cell" sw-mode="y" class="h100p">
+                    <div sw-role="cell"  sw-mode="wrap">
+                        {{#each andons}}
+                        <div class="quick-menu-item-box" favor-id="{{andonCode}}"  >
+                            <div class="quick-menu-item">
+                                <a  type="andon" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y"  data-view=".view-main" sw-role="cell" sw-valign="middle" sw-align="center" andonCode="{{andonCode}}" andonText="{{andonText}}"  statusCode="{{statusCode}}" class="running-link quick-menu-item-inner button close-popup" ">
+                                    <div sw-role="cell">{{andonText}}</div>
+                                </a>
+                                <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="del-favor">
+                                    <i class="ion ion-close-circled"></i>
+                                </a>
+                                <a href="#" class="favor-move-box">
+                                    <span sw-role="cell" sw-align="center" sw-valign="middle" class="favor-move">
+                                        <i class="ion ion-drag"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script> -->

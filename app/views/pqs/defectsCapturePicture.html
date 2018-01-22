@@ -1,0 +1,222 @@
+<!-- 缺陷采集 -->
+<div data-page="pqs_defectsCapturePicture" class="page defectsCapture defectsPicture">
+	<div class="page-content overflow-hidden">
+		<div sw-role="cell" sw-mode="y" class="h100p">
+			<!--头部-->
+			<div sw-role="cell" class="defects-header row">
+				<div class="col-50 form-group" sw-talign='left'>
+					<label class="form-label">
+						产品标识
+					</label>
+					<input type="text" class="form-control" value="L6T752SXENBX00001">
+				</div>
+				<div class="col-50 about-inf" sw-talign='right'>
+					检验员：Scott Tiger 检验计划：Plan A 版本：P1
+				</div>
+			</div>
+			<!--内容区-->
+			<div sw-role="cell" sw-layout="fit" sw-mode="x" class="defects-content">
+				<!--左侧可收缩面板-->
+				<div sw-role="cell" sw-mode="y" class="defect-left-panel bg-grey">
+
+					<div class="tabs-group-up" sw-role="cell" sw-mode="y" sw-flex='1'>
+						<div class="buttons-row" sw-role="cell" >
+							<a href="#tab1" class="tab-link active button">图片一</a>
+							<a href="#tab2" class="tab-link button">图片二</a>
+							<a href="#tab3" class="tab-link button">图片三</a>
+						</div>
+						<div class="tabs" sw-role="cell" sw-layout="fit" >
+							<!-- Tab 1, active by default -->
+							<div id="tab1" class="tab active" sw-role="cell" sw-mode="y">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test1.jpg')"></div>
+							</div>
+							<!-- Tab 2 -->
+							<div id="tab2" class="tab">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test2.jpg')"></div>
+							</div>
+							<!-- Tab 3 -->
+							<div id="tab3" class="tab">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test1.jpg')"></div>
+							</div>
+						</div>
+					</div>
+					<div class="tabs-group-down" sw-role="cell" sw-mode="y" sw-flex='1'>
+						<div class="buttons-row" sw-role="cell" >
+							<a href="#tab4" class="tab-link active button">子图片一</a>
+							<a href="#tab5" class="tab-link button">子图片二</a>
+							<a href="#tab6" class="tab-link button">子图片三</a>
+						</div>
+						<div class="tabs" sw-role="cell" sw-layout="fit" >
+							<!-- Tab 1, active by default -->
+							<div id="tab4" class="tab active" sw-role="cell" sw-mode="y">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test2.jpg')"></div>
+							</div>
+							<!-- Tab 2 -->
+							<div id="tab5" class="tab">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test1.jpg')"></div>
+							</div>
+							<!-- Tab 3 -->
+							<div id="tab6" class="tab">
+								<div class="image-wrap" style="background-image: url('/src/images/car-defect-test2.jpg')"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--右侧内容面板-->
+				<div sw-role="cell" sw-layout="fit" sw-mode="y" class="defect-right-panel">
+					<!--右侧上部三张表-->
+					<div class="right-region-up" sw-role="cell" sw-mode="x" sw-layout="fit">
+						<div class="padding-r-20 right-table-box" sw-role="cell" sw-flex='5'>
+							<div class="w100p right-table-wrap">
+								<table id="right-table2" class="table-bordered" width="100%">
+									<thead>
+										<th>方位描述</th>
+									</thead>
+								</table>
+							</div>
+							<div class="search-bar-wrap padding-r-20">
+								<div  class="search-bar">
+									<label>方位</label>
+									<input type="text" class="search-input" id="right-search2" maxlength="6" placeholder="搜索"/>
+									<div class="search-icon"></div>
+								</div>
+							</div>
+						</div>
+						<div  class="right-table-box" sw-role="cell" sw-flex='6'>
+							<div class="w100p right-table-wrap">
+								<table id="right-table3" class="table-bordered" width="100%">
+									<thead>
+										<th>缺陷描述</th>
+									</thead>
+								</table>
+							</div>
+							<div class="search-bar-wrap">
+								<div  class="search-bar">
+									<label>缺陷</label>
+									<input type="text" class="search-input" id="right-search3" maxlength="6" placeholder="搜索"/>
+									<div class="search-icon"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--右侧下部表单区-->
+					<div class="right-region-down" sw-role="cell" sw-mode="y">
+						<div class="choosed-text"  sw-role="cell">
+							已选择：部位&nbsp;<span id="choose-text-part"></span>/方位&nbsp;<span id="choose-text-direction"></span>/缺陷&nbsp;<span id="choose-text-defect"></span>
+							<div class="five-angle"></div>
+						</div>
+						<div  sw-role="cell" sw-mode="x" sw-layout="fit" class="choosed-panel">
+							<div sw-role="cell" sw-layout="fit" sw-mode="y" class="choose-input-panel">
+								<div class="row  no-gutter" >
+									<div class="col-100 form-group" sw-mode='x-equal'>
+										<label class="form-label w70">
+											责任类型
+										</label>
+										<div class="w100p form-control " sw-valign="middle" sw-role="cell">
+											<div class="radio-wrap"><input type="radio" name="duty-type" id="duty-type-1" value="1"><label for="duty-type-1">制造</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-type" id="duty-type-2" value="2"><label for="duty-type-2">设计</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-type" id="duty-type-3" value="3"><label for="duty-type-3">工艺</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-type" id="duty-type-4" value="4"><label for="duty-type-4">物流</label></div>
+											<div class="radio-wrap" id="open-picker-defectscapture"><input type="radio" name="duty-type" id="duty-type-6" value="6"><label for="duty-type-6">其他</label><i class="three-angle-down"></i></div>
+										</div>
+									</div>
+								</div>
+								<div class="row  no-gutter" >
+									<div class="col-100 form-group" sw-mode='x-equal'>
+										<label class="form-label w70">
+											责任方
+										</label>
+										<div class="w100p form-control " sw-valign="middle" sw-role="cell">
+											<div class="radio-wrap"><input type="radio" name="duty-party" id="duty-party-1" value="1"><label for="duty-party-1">冲压</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-party" id="duty-party-2" value="1"><label for="duty-party-2">焊装</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-party" id="duty-party-3" value="1"><label for="duty-party-3">涂装</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-party" id="duty-party-4" value="1"><label for="duty-party-4">总装</label></div>
+											<div class="radio-wrap"><input type="radio" name="duty-party" id="duty-party-5" value="1"><label for="duty-party-5">其他</label></div>
+										</div>
+									</div>
+								</div>
+								<div class="row  no-gutter" >
+									<div class="col-100 form-group" sw-mode='x-equal'>
+										<label class="form-label w70">
+											严重程度
+										</label>
+										<div class="w100p form-control " sw-valign="middle" sw-role="cell">
+											<div class="radio-wrap"><input type="radio" name="serious-level" id="serious-level-1" value="1"><label for="serious-level-1">C</label></div>
+											<div class="radio-wrap"><input type="radio" name="serious-level" id="serious-level-2" value="1"><label for="serious-level-2">B</label></div>
+											<div class="radio-wrap"><input type="radio" name="serious-level" id="serious-level-3" value="1"><label for="serious-level-3">A</label></div>
+											<div class="radio-wrap"><input type="radio" name="serious-level" id="serious-level-4" value="1"><label for="serious-level-4">其他</label></div>
+										</div>
+									</div>
+								</div>
+								<div class="row  no-gutter" >
+									<div class="col-100 form-group" sw-mode='x-equal'>
+										<label class="form-label w70">
+											缺陷数量
+										</label>
+										<div class="w100p form-control " sw-valign="middle" sw-role="cell">
+											<div class="radio-wrap"><input type="radio" name="defect-count" id="defect-count-1" value="1"><label for="defect-count-1">1</label></div>
+											<div class="radio-wrap"><input type="radio" name="defect-count" id="defect-count-2" value="1"><label for="defect-count-2">2</label></div>
+											<div class="radio-wrap"><input type="radio" name="defect-count" id="defect-count-3" value="1"><label for="defect-count-3">3</label></div>
+											<div class="radio-wrap"><input type="radio" name="defect-count" id="defect-count-4" value="1"><label for="defect-count-4"><input type="number" class="other-input" min="4" max="100" value="4"></label></div>
+										</div>
+									</div>
+								</div>
+								<div class="row  no-gutter" >
+									<div class="col-100 form-group" sw-mode='x-equal'>
+										<label class="form-label w70">
+
+										</label>
+										<div class="w100p form-control " sw-valign="middle" sw-role="cell">
+											<div class="radio-wrap file-choose-wrap"><input type="file" id="fileInput" accept="image/gif,image/jpeg,image/jpg,image/png"><label>附件</label><i class="attachment"></i></div>
+											<div class="file-name"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div sw-role="cell" sw-mode="y" class="choose-buttons-panel">
+								<div class="choose-button">
+									<a href="#" class="topbar-button button button-fill color-cyan btn-return">继续采集</a>
+								</div>
+								<div class="choose-button">
+									<a href="#" class="topbar-button button button-fill color-cyan btn-return">提交</a>
+								</div>
+								<div class="choose-button">
+									<a href="#" class="topbar-button button button-fill color-cyan btn-return">重置</a>
+								</div>
+								<div class="choose-button">
+									<a href="#" class="topbar-button button button-fill color-cyan btn-return">已采集</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- 底部弹出模态框 -->
+		<div class="masked close-picker"></div>
+		<div class="picker-modal picker-defectscapture">
+			<div class="title">
+				责任类型
+			</div>
+			<div class="choose-box">
+				<div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-1" value="11"><label for="duty-type-other-1">其他责任类型1</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-2" value="12"><label for="duty-type-other-2">其他责任类型2</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-3" value="13"><label for="duty-type-other-3">其他责任类型3</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-4" value="14"><label for="duty-type-other-4">其他责任类型4</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-5" value="15"><label for="duty-type-other-5">其他责任类型5</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-6" value="16"><label for="duty-type-other-6">其他责任类型6</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-7" value="17"><label for="duty-type-other-7">其他责任类型7</label>
+				</div><div class="choose-item"><input type="radio" name="duty-type-other" id="duty-type-other-8" value="18"><label for="duty-type-other-8">其他责任类型8</label></div>
+			</div>
+			<div class="bottom-toolbar">
+				<div class="confirm-button">
+					<a href="#" class="topbar-button button button-fill color-cyan btn-return close-picker-btn">确认</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
