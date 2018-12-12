@@ -1,0 +1,86 @@
+<!-- 拉绳ANDON总控面板开始 -->
+<div data-page="andon_andonTypeDrawstring" class="page bg-gray">
+	<div class="page-content">
+		<div sw-role="cell" sw-layout='fit' class="h100p">
+
+			<!-- 左侧菜单栏开始 -->
+			<div class="andon-drawstring-panel">
+				<div class="andon-drawstring-button-panel" sw-role="cell" sw-mode='y'>
+					<div sw-role="cell" sw-valign='middle' sw-align='center' class="andon-drawstring-button-desc-panel">
+						<label class="andon-drawstring-button-text" data-i18n="ANDON.B.DRAWSTRING"></label><!-- 拉绳按钮 -->
+					</div>
+					<div sw-role="cell" sw-layout='fit' sw-valign='middle' sw-align='center' class="andon-drawstring-button-wrap">
+						<a sw-role="cell"  sw-layout='fit' sw-align='center' class="andon-drawstring-button" name="andon-drawstring-button" andonTypeCode="LSANDON" href="javascript:void(0);" type=''>
+
+							<div class="andon-drawstring-touch-time" sw-valign='middle' sw-role="cell"  sw-layout='fit' sw-align='center' andon-touch-time-format="ANDON.T.TOUCH_TIME_DURATION" ></div>
+
+						</a>
+						
+					</div>
+				</div>
+			</div>
+			<!-- 左侧菜单栏结束 -->
+
+			<!-- 右侧功能区开始 -->
+			<div sw-layout='fit' sw-mode="y">
+
+				<!-- 顶部按钮区域开始 -->
+				<div class="h60 sw-flex-row-reverse " sw-role="cell">
+					<div class="andon-drawstring-button-bar button-group button-group-radius margin-r-55 "  sw-valign='middle'>
+						<button class="active simple font-bold" data-i18n="ANDON.B.SIMPLE"></button>  <!-- 简易 -->
+						<button class="detail font-bold" data-i18n="ANDON.B.DETAIL"></button>  <!-- 详情 -->
+					</div>
+				</div>
+				<!-- 顶部按钮区域结束 -->
+
+				<!-- 安灯项目区开始 -->
+				<div class="swiper-container andon-drawstring-item-list" sw-layout="fit">
+					<div class="swiper-pagination" id="andonControlSwiperPg"></div>
+					<div id="andonControlSwiperRender" class="swiper-wrapper"></div>
+					
+					<script type="text/html" id="andonControlSwiperTpl">
+						{{#each groupAndons}}
+						<div class="swiper-slide">
+							<div sw-role="cell" sw-mode='wrap' sw-valign="middle" class="andon-drawstring-swiper-box sw-flex-row">
+								{{#each this}}
+								<div class="andon-drawstring-item-simple" >
+									<div class="andon-drawstring-item-button">
+										<a  type="andon" andonTypeCode="{{andonType.andonTypeCode}}" typeText="{{andonType.typeText}}" templateCode="templateCode" {{#unless lastTriggerTime}}statusECode=3{{else}}statusECode=1{{/unless}}  switchOnDateTime="{{lastTriggerTime}}" accumulatedTime="{{accumulatedTime||0}}" class="running-link button" touchColor="{{andonType.touchColor}}" normalColor="{{andonType.normalColor}}" >
+											<div sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" >
+												<div sw-valign="middle" class="andon-drawstring-item-text">{{andonType.typeText}}</div>
+												<div class="andon-drawstring-dashed-line"></div>
+												<div sw-valign="middle" class="andon-drawstring-touch-time" andon-touch-time-format="ANDON.T.TOUCH_TIME_DURATION_CN"></div>
+											</div>
+											
+										</a>
+									</div>
+									<div class="andon-drawstring-item-info">
+										<dl>
+											<dt data-i18n="ANDON.T.TOUCH_TIME"></dt>
+											<dd name="lastTriggerTimePart">{{lastTriggerTimePart}}</dd>
+										</dl>
+										<dl>
+											<dt data-i18n="ANDON.T.TOUCH_COUNT"></dt>
+											<dd name="triggerCount">{{triggerCount||0}}</dd>
+										</dl>
+										<dl>
+											<dt data-i18n="ANDON.T.TOUCH_TOTAL_TIME"></dt>
+											<dd name="accumulatedTime">{{accumulatedTime||0}}</dd>
+										</dl>
+									</div>
+								</div>
+								{{/each}}
+							</div>
+						</div>
+						{{/each}}
+					</script>
+				</div>
+				<!-- 安灯项目区结束 -->
+
+				<div class="h40"></div>
+			</div>
+			<!-- 右侧功能区结束 -->
+
+		</div>
+	</div>
+</div>

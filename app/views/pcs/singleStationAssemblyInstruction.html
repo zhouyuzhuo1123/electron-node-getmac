@@ -1,0 +1,112 @@
+<!-- 单站点装配指示 -->
+<div data-page="pcs_singleStationAssemblyInstruction" class="page bg-gray singleAsmIst assemblyIst">
+	<div class="page-content"  sw-role="cell" sw-mode="y" class="h100p">
+        <!-- <div class="header" sw-role="cell">
+            <div class="logo"></div>
+            <div class="title"></div>
+            <div class="time">
+                <label>时间：</label>
+                <span>00:00:00</span>
+            </div>
+		</div> -->
+
+        <div id="singleStationAssInstrRender" sw-role="cell" sw-layout='fit' sw-mode="y" class="h100p">
+            <div class="emptyTip">
+                无本站点数据
+            </div>
+        </div>
+
+        <script type="text/html" id="singleStationAssInsTpl">
+            <div class="content" sw-role="cell">
+                <div class="content-wrap" sw-role="cell" sw-mode="x">
+                    <div class="left-panel" sw-role="cell">
+                        <div class="left-wrap" sw-role="cell" sw-mode="y">
+                            <div sw-role="cell" class="left-row1">
+                                <div class="item-box txt-large" sw-role="cell" sw-flex="2">
+                                    <label>产品标识号</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                        {{#if productNumFormat}}
+                                            {{productNumFormat}} 
+                                        {{else}}
+                                            --
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="item-box txt-large padding-l-20" sw-role="cell" sw-flex="2">
+                                    <label>生产管理号</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                        {{#if productIdFormat}}
+                                            {{productIdFormat}} 
+                                        {{else}}
+                                            --
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div sw-role="cell"  sw-mode="x" class="left-row2">
+                                <div class="item-box" sw-role="cell" sw-flex="3">
+                                    <label>当前规格</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                        {{#if carDescription}}
+                                            {{carDescription}} 
+                                        {{else}}
+                                            --
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="item-box padding-l-20" sw-role="cell" sw-flex="1">
+                                    <label>剩余数量</label>
+                                    <div class="display-panel txt-red {{#if warnShineFlag}} warn-shine{{/if}}" sw-role="cell" sw-valign='middle' sw-align='center'>
+                                        {{#if remainingQuantity}}
+                                            {{remainingQuantity}} 
+                                        {{else}}
+                                            --
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div sw-role="cell" class="left-row3">
+                                <div class="item-box item-big" sw-role="cell">
+                                    <label>备注</label>
+                                    <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                                        {{#if remark}}
+                                            {{remark}} 
+                                        {{else}}
+                                            --
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-panel" sw-role="cell" sw-layout="fit">
+                        {{#if picture}}
+                            <div class="img-wrap" style="background-image: url('{{picture}}')"></div>
+                        {{else}}
+                            <div class="img-wrap no-img"></div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            <div class="bottom" sw-role="cell">
+                <div class="bottom-wrap" sw-role="cell" sw-mode="x">
+                    {{#each configEnums}}
+                    <div class="item-box item-big txt-large" sw-role="cell">
+                        <label>{{configText}}</label>
+                        <div class="display-panel" sw-role="cell" sw-valign='middle'>{{valueText}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </script>
+
+        <!--<script type="text/html" id="singleStationAssInsConfTpl">-->
+        <!--</script>-->
+        <!--<div class="content" sw-role="cell" id="singleStationAssInsRender">-->
+        <!---->
+        <!--</div>-->
+        <!--<div class="bottom" sw-role="cell" id="singleStationAssInsConfRender">-->
+        <!--</div>-->
+
+	</div>
+</div>

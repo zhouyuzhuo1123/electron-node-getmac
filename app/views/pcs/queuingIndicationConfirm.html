@@ -1,0 +1,143 @@
+<!-- 扫描防错上件 -->
+<div data-page="pcs_queuingIndicationConfirm" class="page bg-gray assemblyIst queuingIndicationConfirm">
+    <!--模板渲染容器-->
+    <div id="queuingIndicationConfirm" class="page-content overflow-hidden" sw-role="cell" sw-mode="y" class="h100p">
+
+        <!-- 头部区域开始  -->
+        <div class="top" sw-role="cell">
+            <div sw-role="cell" sw-flex="2" class="left-row3">
+                <div class="item-box txt-middle first" sw-role="cell">
+                    <label>产品标识号</label>
+                    <div class="display-panel productNum" sw-role="cell" sw-valign="middle" productnum="">--</div>
+                </div>
+                <div class="item-box txt-middle second" sw-role="cell">
+                    <label>生产管理号</label>
+                    <div class="display-panel productId" sw-role="cell" sw-valign="middle">--</div>
+                </div>
+                <div class="item-box third" sw-role="cell">
+                    <label>当前规格</label>
+                    <div class="display-panel carDescription" sw-role="cell" sw-valign="middle">--</div>
+                </div>
+                <div class="item-box forth" sw-role="cell">
+                    <label>校验码</label>
+                    <div class="display-panel" sw-role="cell" sw-valign="middle">
+                        <input class="u-input" type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 头部区域结束  -->
+
+        <!-- 中间部分开始  -->
+        <div class="content" sw-role="cell" id="ConfirmRenderTotal">
+            <div class="content-wrap" sw-role="cell" sw-mode="x">
+            <div class="left-panel" sw-role="cell" sw-layout="fit">
+                <div class="left-wrap w100p h100p">
+                    <div class="img-wrap no-img"></div>
+                </div>
+            </div>
+            <div class="right-panel" sw-role="cell">
+                <div class="right-wrap" sw-role="cell" sw-mode="y">
+                    <div sw-role="cell" sw-flex="3" sw-mode="x" class="left-row1">
+                        <div class="item-box" sw-role="cell">
+                            <label>当前规格</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle"></div>
+                        </div>
+                    </div>
+
+                    <!-- 特性列表开始  -->
+                    <div sw-role="cell" sw-flex='2' sw-mode="x" class="left-row2">
+                        <div class="item-box item-middle f-w45" sw-role="cell">
+                            <label></label>
+                            <div class="display-panel feature" sw-role="cell" sw-valign='middle'></div>
+                        </div>
+                    </div>
+                    <!-- 特性列表结束  -->
+
+                    <div sw-role="cell" sw-flex="2" class="left-row3">
+                        <div class="item-box txt-middle" sw-role="cell">
+                            <label>产品标识号</label>
+                            <div class="display-panel productNum" sw-role="cell" sw-valign="middle"></div>
+                        </div>
+                        <div class="item-box txt-middle" sw-role="cell">
+                            <label>生产管理号</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle"></div>
+                        </div>
+                        <div class="item-box" sw-role="cell">
+                            <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="button button-fill w100p confirmBtn">异常跳过</a>
+                        </div>
+                    </div>
+                    <div sw-role="cell" sw-flex="2" class="left-row4">
+                        <div class="item-box" sw-role="cell">
+                            <label>备注</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--  中间部分结束  -->
+
+    </div>
+    <!--模板渲染容器结束-->
+
+    <!--渲染模板-->
+    <script type="text/html" id="ConfirmRenderTpl">
+        <div class="content-wrap" sw-role="cell" sw-mode="x">
+            <div class="left-panel" sw-role="cell" sw-layout="fit">
+                <div class="left-wrap w100p h100p">
+                    {{#if picture}}
+                         <div class="img-wrap no-img" style="background-image: url('{{picture}}')"></div>
+                    {{else}}
+                        <div class="img-wrap no-img"></div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="right-panel" sw-role="cell">
+
+                <div class="right-wrap" sw-role="cell" sw-mode="y">
+                    <div sw-role="cell" sw-flex="5" sw-mode="x" class="left-row1">
+                        <div class="item-box" sw-role="cell">
+                            <label>当前规格</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle">{{carDescription}}</div>
+                        </div>
+                    </div>
+
+                    <!-- 特性列表开始  -->
+                    <div sw-role="cell" sw-flex='3' sw-mode="x" class="left-row2">
+                        {{#each configEnums}}
+                        <div class="item-box item-middle f-w45" sw-role="cell">
+                            <label>{{configText}}</label>
+                            <div class="display-panel feature" sw-role="cell" sw-valign='middle'>{{valueText}}</div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <!-- 特性列表结束  -->
+
+                    <div sw-role="cell" sw-flex="3" class="left-row3">
+                        <div class="item-box txt-middle" sw-role="cell">
+                            <label>产品标识号</label>
+                            <div class="display-panel productNum" sw-role="cell" sw-valign="middle" >{{productNumFormat}}</div>
+                        </div>
+                        <div class="item-box txt-middle" sw-role="cell">
+                            <label>生产管理号</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle">{{productIdFormat}}</div>
+                        </div>
+                        <div class="item-box" sw-role="cell">
+                            <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="button button-fill w100p confirmBtn">异常跳过</a>
+                        </div>
+                    </div>
+
+                    <div sw-role="cell" sw-flex="5" class="left-row4">
+                        <div class="item-box" sw-role="cell">
+                            <label>备注</label>
+                            <div class="display-panel" sw-role="cell" sw-valign="middle">{{remarkremark}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+</div>

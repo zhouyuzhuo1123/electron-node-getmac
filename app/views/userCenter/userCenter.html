@@ -1,0 +1,288 @@
+<!-- 用户中心维护页面 -->
+<div data-page="userCenter_userCenter" class="page bg-gray">
+	<div class="page-content ">
+		<div sw-role="cell" sw-layout="fit"  class="usercenter">
+			<div sw-role="cell" class="usercenter-menu-box">
+				<div sw-role="cell" sw-mode="y" class="usercenter-menu  h100p">
+					<div sw-role="cell" sw-layout="fit" class="overflow">
+						<div class="list-block accordion-list w100p usercenter-list">
+							<!-- 导航菜单 -->
+							<ul>
+								<li data-url="userInfo" class="active">
+									<a href="#" class="item-content item-link active">
+										<div class="">
+											<div class="item-title" data-i18n="USERCENTER.T.MENU_USERDETAIL"></div>
+										</div>
+									</a>
+								</li>
+
+								<li data-url="resetPassword" class="">
+									<a href="#" class="item-content item-link ">
+										<div class="">
+											<div class="item-title" data-i18n="USERCENTER.T.MENU_RESETPASSWORD"></div>
+										</div>
+									</a>
+
+								</li>
+
+								<li data-url="envirInfo" class="">
+									<a href="#" class="item-content item-link ">
+										<div class="">
+											<div class="item-title">环境信息</div>
+										</div>
+									</a>
+								</li>
+
+								<li class="">
+									<a href="#" class="item-content item-link ">
+										<div class="">
+											<div class="item-title" data-i18n="USERCENTER.T.MENU_FEEDBACK"></div>
+										</div>
+									</a>
+
+								</li>
+
+								<li data-url="loginOut" class="">
+									<a href="#" class="item-content item-link ">
+										<div class="">
+											<div class="item-title" data-i18n="USERCENTER.T.MENU_LOGINOUT"></div>
+										</div>
+									</a>
+
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="usercenter-body">
+				<!-- 用户资料面板 --> 
+				<div  name="userInfo" class="usercenter-content h100p active" style="display:block;">
+					<form class="required-validate" action="">
+						<div class="margin-t-40 ">
+							<div class="w100p row form">
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="USERCENTER.T.USERNAME">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="userCode" class="form-control toUp"  readonly=true >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="USERCENTER.T.NAME">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="userText"  class="form-control" >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="USERCENTER.T.SITE">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="siteCode"  class="form-control" readonly=true >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="USERCENTER.T.WORKCENTER">
+
+									</label>
+									<div class="w100p">
+										<select class="form-control" disabled=true>
+										</select>
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label"  data-i18n="USERCENTER.T.STATION">
+
+									</label>
+									<div class="w100p">
+										<select class="form-control" disabled=true>
+										</select>
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label"  data-i18n="USERCENTER.T.WORKPOST">
+
+									</label>
+									<div class="w100p">
+										<select class="form-control" disabled="true">
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="w100p row form">
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label"  data-i18n="USERCENTER.T.TELEPHONE">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="telephone" class="form-control number">
+									</div>
+								</div>
+							</div>
+							<div class="w100p row form">
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label "  data-i18n="USERCENTER.T.EMAIL">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="email" class="form-control required">
+									</div>
+								</div>
+							</div>
+							<div class="w100p row form">
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label"  data-i18n="USERCENTER.T.MOBILE">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="mobile" class="form-control">
+									</div>
+								</div>
+							</div>
+							<div class="dashed-line"></div>
+							<div class="w100p row form">
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label">
+									</label>
+									<div class="w100p">
+										<div sw-role="cell"  class="padding-r-20 big-item">
+											<button type="submit" class="topbar-button button button-fill color-cyan" name="btnSubmit" data-i18n="COMMON.B.OK"></button>
+											<button href="#" class="topbar-button button button-fill color-gray" data-i18n="COMMON.B.CANCEL"></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>	
+				<!--用户资料面板结束-->
+				
+				<!--修改密码面板开始-->
+				<div  name="resetPassword"  class="usercenter-content h100p" >
+					<form>
+						<div class=" margin-t-40 ">
+							<div class="w100p row form"  >
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="w100p row form" >
+									<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+										<label class="form-label" data-i18n="USERCENTER.T.CURRENT_PASSWORD">
+
+										</label>
+										<div class="w100p">
+											<input type="password" name="currentPassword"  class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="w100p row form"  >
+									<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+										<label class="form-label" data-i18n="USERCENTER.T.NEW_PASSWORD">
+
+										</label>
+										<div class="w100p">
+											<input type="password" name="newPassword"  class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="w100p row form"  >
+									<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+										<label class="form-label" data-i18n="USERCENTER.T.REPEANEW_PASSWORD">
+
+										</label>
+										<div class="w100p">
+											<input type="password" name="repeatNewPassword"  class="form-control">
+										</div>
+									</div>
+
+								</div>
+								<div class="w100p row form"  >
+									<div class="col-100 tablet-user cell form-group" sw-mode='x-equal'>
+										<label class="form-label">
+										</label>
+										<div class="w100p message-block" sw-talign='left'>
+											<p data-i18n="USERCENTER.T.PASSWORD_RULE_LENGTH"></p>
+											<p data-i18n="USERCENTER.T.PASSWORD_RULE_GROUP"></p>
+											<p data-i18n="USERCENTER.T.PASSWORD_RULE_CLAIM"></p>
+										</div>
+									</div>
+								</div>
+								<div class="dashed-line"></div>
+								<div class="w100p row form">
+									<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+										<label class="form-label">
+										</label>
+										<div class="w100p">
+											<div sw-role="cell"  class="padding-r-20 big-item">
+												<a href="#" class="topbar-button button button-fill color-cyan" name="btnSubmit" data-i18n="COMMON.B.OK"></a>
+												<a href="#" class="topbar-button button button-fill color-gray" name="btnCanel" data-i18n="COMMON.B.CANCEL"></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>	
+				<!--修改密码面板结束-->	
+
+				<!--环境信息面板开始-->
+				<div name="envirInfo"  class="usercenter-content h100p">
+					<form>
+						<div class=" margin-t-40 ">
+							<div class="w100p row form">
+								<!-- Each "cell" has col-[widht in percents] class -->
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="APP.VERSION">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="version" class="form-control toUp"  readonly=true >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="APP.SERVER">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="sysAddress"  class="form-control" >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="APP.DESCRIPTION">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="sysDescript"  class="form-control" readonly=true >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="APP.TERMINAL.MAC">
+
+									</label>
+									<div class="w100p">
+										<input type="text" name="macAddress"  class="form-control" readonly=true >
+									</div>
+								</div>
+								<div class="col-100 tablet-50 cell form-group" sw-mode='x-equal'>
+									<label class="form-label" data-i18n="APP.OPERABLE.STATION">
+									</label>
+									<div class="w100p">
+										<input type="text" name="canUseSation"  class="form-control" readonly=true >
+									</div>
+								</div>								
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--环境信息面板结束-->
+			</div>
+		</div>
+	</div>

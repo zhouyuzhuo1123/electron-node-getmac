@@ -1,0 +1,72 @@
+<form id="llSetForm" class="search-panel">
+                <!--工作中心-->
+    <div class="row  no-gutter" >
+        <div class="col-100 form-group" sw-mode='x-equal'>
+            <label class="form-label" data-i18n="COMMON.T.WORKCENTER">
+            	工作中心
+            </label>
+            <div class="w100p">
+                <select  class="form-select-control" id="allWorkCenterListRender" name="workCenterCode"></select>
+                <script type="text/html" id="allWorkCenterListTpl">
+                    <option value='' data-i18n="COMMON.T.ALL"></option>
+                    {{#each allWorkCenterList}}
+                        <option value={{workCenterCode}}>{{workCenterText}}</option>
+                    {{/each}}
+                </script>
+            </div>
+        </div>
+    </div>
+    <!--站点-->
+    <div class="row  no-gutter" >
+        <div class="col-100 form-group" sw-mode='x-equal'>
+            <label class="form-label" data-i18n="COMMON.T.STATION">
+            	站点
+            </label>
+            <div class="w100p" id="stationListContainer">
+                <select class="form-select-control" id="stationListRender" name="stationCode">
+                    <option value=""></option>
+                </select>
+            </div>
+            <script type="text/html" id="stationListTpl">
+                <option value='' data-i18n="COMMON.T.ALL"></option>
+                {{#each stationList}}
+                <option value={{stationCode}}>{{stationText}}</option>
+                {{/each}}
+            </script>
+        </div>
+    </div>
+    <!--触发时间-->
+    <div class="row  no-gutter" >
+        <div class="col-100 form-group" sw-mode='x-equal'>
+            <label class="form-label">
+                生产编号
+            </label>
+            <div class="w100p">
+                <input type="text" name="productNum" class="form-control">
+            </div>
+        </div>
+    </div>
+    <!--关闭时间-->
+    <!--触发时间-->
+    <div class="row  no-gutter" >
+        <div class="col-100 form-group" sw-mode='x-equal'>
+            <label class="form-label">
+            	开始时间
+            </label>
+            <div class="w100p">
+                <input type="text" name="minCreateDateTime" class="datetime form-control">
+            </div>
+        </div>
+    </div>
+    <!--关闭时间-->
+    <div class="row  no-gutter" >
+        <div class="col-100 form-group" sw-mode='x-equal'>
+            <label class="form-label">
+            	结束时间
+            </label>
+            <div class="w100p">
+                <input type="text" name="maxCreateDateTime" class="datetime form-control">
+            </div>
+        </div>
+    </div>
+</form>   

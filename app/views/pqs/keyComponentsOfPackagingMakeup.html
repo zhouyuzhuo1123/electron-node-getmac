@@ -1,0 +1,108 @@
+<!-- 关重件分装采集 -->
+<div data-page="pqs_keyComponentsOfPackagingMakeup" class="page bg-gray">
+    <div class="page-content">
+        <div class="kcopc-head">
+            <div class="kcopc-head-panel" sw-role="cell">
+                <div class="kcopc-head-div-add">
+                    <div class="row">
+                        <label data-i18n="KEYPART.T.SUBASSEMBLY_BARCODE">分总成条码</label>
+                        <div class="longInputWrap">
+                            <input class="text-upperCase" type="text" id="productmark"/>
+                            <a id="printBtn" class="button">
+                                <i class="print-icon"></i>打印
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label data-i18n="KEYPART.T.BATCH_NO">批次条码</label>
+                        <input class="longInput text-upperCase" type="text" id="lotBarCodeInput"/>
+                    </div>
+                </div>
+                <div class="kcopc-head-button">
+                    <div class="kcopc-head-number">
+                        <span class="kcopc-head-num1" id="currentNum">0</span>/
+                        <span class="kcopc-head-num2" id="allNum">0</span>
+                    </div>
+                    <div class="kcopc-head-button-submit">
+                        <button class="head-confirm" data-i18n="COMMON.B.SAVE">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-panel kcopm-table">
+            <table id="myTable" class="table-bordered table-striped kcopm-table-button">
+                <thead>
+                <th data-i18n="KEYPART.T.MATERIAL_NO"></th>
+				<th data-i18n="KEYPART.T.SUPPLIER"></th>
+				<th data-i18n="KEYPART.T.BATCH"></th>
+				<th data-i18n="KEYPART.T.MATERIAL_DESC"></th>
+				<th data-i18n="KEYPART.T.SUPPLIER_DESC"></th>
+				<th data-i18n="COMMON.T.OPERATION"></th>
+                </thead>
+            </table>
+        </div>
+        <!-- 下侧弹出框 -->
+        <div class="masked close-picker"></div>
+        <div class="picker-modal picker-1 kcopc-paner-body">
+            <div class="picker-modal-inner">
+                <div id="picker1" class="content-block content-block-edit">
+                    <h4 data-i18n="KEYPART.T.COLLECT_INFO_MODIFY"></h4>
+                    <div class="infoTake">
+                        <div class="infoTake-component">
+                            <label class="labelName" data-i18n="KEYPART.T.MATERIAL_NO">组件号</label>
+                            <input type="text" id="kcopc-component" readonly="readonly" disabled="disabled"/>
+                        </div>
+                        <div  class="infoTake-component" id="supplierListRender">
+                            <!--<label>供应商</label>
+                            <input type="text" id="kcopc-supplier"/>-->
+                        </div>
+                        <div  class="infoTake-component">
+                            <label data-i18n="KEYPART.T.BATCH" class="labelName">批次</label>
+                            <input type="text" id="ipCollect-batchNumber" class="text-upperCase"/>
+                        </div>
+                        <div class="content-block-button">
+                        	<button class="close-picker ipCollect-cancel">
+								取消
+							</button>
+                            <button class="close-picker ipCollect-confirm">
+                               	 确认
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/html" id="supplierListTpl">
+                	<label data-i18n="KEYPART.T.SUPPLIER" class="labelName infoTakkLabel"></label>
+                    <div class="supplierDiv">
+                        {{#each supplierList}}
+                            <div class="radio-supplier" style="float:left">
+                                <input type="radio" name="provider" id={{supplierCode}} value={{supplierCode}}>
+                                <label for={{supplierCode}}>
+                                    <span>{{supplierText}}</span>
+                                    <i class="radio-ico"></i>
+                                </label>
+                            </div>
+                        {{/each}}
+                    </div>
+	            </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="toolbar button close-picker">-->
+<!--隐藏-->
+<!--</div>-->
+<!--<div id="picker2" class="content-block content-block-edit">
+        <h4>待执行车序-车辆VIN号选择</h4>
+        <div class="table-panel">
+            <table id="selectTable" class="table-bordered table-striped">
+                <thead>
+                <th>序号</th>
+                <th>VIN</th>
+                <th>物料描述</th>
+                <th>添加</th>
+                </thead>
+            </table>
+        </div>
+    </div>-->

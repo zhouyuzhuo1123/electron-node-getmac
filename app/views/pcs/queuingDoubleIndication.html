@@ -1,0 +1,100 @@
+<!--上件指示（双）页面开始-->
+<div id="queuingDoubleIndication" data-page="pcs_queuingDoubleIndication" class="page bg-gray queuingDoubleIndication assemblyIst">
+    <!--主容器开始-->
+    <div class="page-content" sw-role="cell" sw-mode="y">
+        <!--头部开始-->
+        <!--<div class="header" sw-role="cell">
+            <div class="logo"></div>
+            <div class="title"></div>
+            <div class="time">
+                <label>时间：</label>
+                <span>00:00:00</span>
+            </div>
+        </div>-->
+        <!--头部结束-->
+
+        <!--中间内容开始-->
+        <div class="content" sw-role="cell" sw-layout="fit">
+            
+            <div class="content-wrap" sw-role="cell" sw-mode="x">
+                <!--左侧渲染区域-->
+                <div class="col-panel" sw-role="cell" sw-flex="1" sw-mode="y" id="leftQueue"></div>
+                <!--右侧渲染区域-->
+                <div class="col-panel" sw-role="cell" sw-flex="1" sw-mode="y" id="rightQueue"></div>
+            </div>
+        </div>
+        <!--中间内容结束-->
+
+        <!--下方功能按钮开始-->
+        <div sw-role="cell" class="u-tool content" sw-align="center" sw-mode="x-equal" sw-valign="middle">
+            <span class="u-quePage" sw-role="cell">
+                <a title="前一页" href="javascript:;"></a>
+                <a title="后一页" href="javascript:;"></a>
+                <span title="当前页码" class="u-page">
+                    <span class="u-queue-history">--</span>
+                    <span>/</span>
+                    <span class="u-queue-now">--</span>
+                    <span>/</span>
+                    <span class="u-queue-total">--</span>
+                </span>
+            </span>
+
+            <span class="u-queSure" sw-align="right" sw-role="cell" sw-valign="middle">
+                <a title="回到初始页码" class="u-queuingRefresh" href="javascript:;" txt-large>刷新</a>
+                <a title="除了当前产品，其他产品不可确认" class="u-queuingSure u-queue-disabled" href="javascript:;" txt-large>上线确认</a>
+            </span>
+        </div>
+        <!--下方功能按钮结束-->
+
+        <!--渲染模板开始-->
+        <script type="text/html" id="queuingDoubleTpl">
+            <div sw-role="cell" sw-mode="x" class="panel-row1">
+
+                <div class="item-box txt-large" sw-role="cell">
+                    <!--产品标识号截取后6位-->
+                    <label>产品标识号</label> 
+                        <div class="display-panel" sw-role="cell" sw-valign='middle'>
+                            {{js "this.productNum ? this.productNum.slice(-6) : '--'"}}
+                        </div>
+                </div>
+
+                <div class="item-box txt-large" sw-role="cell">
+                    <!--生产管理号截取后5位-->
+                    <label>生产管理号</label>
+                        <div class="display-panel" sw-role="cell" this.productionSeqNum sw-valign='middle'>
+                            {{js "'productId' in this ? this.productId ? this.productId.slice(-5) : '--' : this.productionSeqNum ? this.productionSeqNum.slice(-5) : '--'"}}
+                        </div>
+                </div>
+
+            </div>
+            <div sw-role="cell"  sw-mode="x" class="panel-row2">
+                <div class="item-box item-middle" sw-role="cell">
+                    <label>产品规格</label>
+                    <div class="display-panel format" sw-role="cell" sw-valign='middle'>{{js "this.carDescription ? this.carDescription : '--'"}}</div>
+                </div>
+            </div>
+ 
+            <div sw-role="cell"  sw-mode="x" class="panel-row3">
+                <div class="left-wrap w100p h100p">
+                    {{#if picture}}
+                    <div class="img-wrap" style="background-image: url('{{picture}}')"></div>
+                    {{else}}
+                    <div class="img-wrap no-img"></div>
+                    {{/if}}
+                </div>
+            </div>
+
+                <div sw-role="cell"  sw-mode="x" class="panel-row4">
+                    {{#each configEnums}}
+                    <div class="item-box item-middle" sw-role="cell">
+                        <label>{{configText}}</label>
+                        <div class="display-panel feature" sw-role="cell" sw-valign='middle'>{{valueText}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+
+        </script>
+    </div>
+    <!--主容器结束-->
+</div>
+<!--上件指示（双）页面结束-->

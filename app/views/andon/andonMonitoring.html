@@ -1,0 +1,80 @@
+<!-- ANDON明细页面 -->
+<div data-page="andon_andonMonitoring" class="page bg-gray">
+    <div class="page-content ">
+        <div id="andonMonitoringRender" class="row andonMonitoring" style="min-width: 1040px;">
+
+            <div class="col-100 tablet-25 andon-total-panel" id="andonTotalRender"></div>
+            <script type="text/html" id="andonTotalTpl">
+                <div class="andon-list-item">
+                    <a  type="andonType" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" andonCode="{{andonCode}}" andonText="{{andonText}}" touchTimeLong="{{touchTimeLong}}" workUnitCode="{{workUnitCode}}" templateCode="templateCode" statusECode={{statusECode}} switchOnDateTime="{{switchOnDateTime}}" class="andon-item-button running-link button" touchColor="{{touchColor}}" normalColor="{{normalColor}}" {{#if triggerCount}} style="background: {{touchColor}};"  {{else}} style="background: {{normalColor}};"   {{/if}}>
+                        <div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle" class="andon-list-item-txt font-50">{{triggerCount}}</div>
+                        <div class="andon-dashed-line"></div>       
+                        <div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-36">{{typeText}}</div>
+                    </a>
+                </div>
+            </script>
+
+            <div class="col-100 tablet-75 andon-type-panel swiper-container " sw-role="cell" id="andonMonitoringTypeSwiper">
+                <div id="andonMonitoringTypeSwiperRender" class="swiper-wrapper"></div>
+                <script type="text/html" id="andonMonitoringTypeSwiperTpl">
+                    {{#each groupAndons}}
+                        <div class="swiper-slide">
+                            <div class="row andon-swiper-box">
+                                {{#each this}}
+                                <div class="col-100 tablet-25 andon-list-item">
+                                    <a  type="andonType" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" andonTypeCode="{{andonType.andonTypeCode}}" typeText="{{andonType.typeText}}" touchTimeLong="{{touchTimeLong}}" workUnitCode="{{workUnitCode}}" templateCode="templateCode" statusECode={{statusECode}} switchOnDateTime="{{switchOnDateTime}}" class="andon-item-button running-link button" touchColor="{{andonType.touchColor}}" normalColor="{{andonType.normalColor}}"
+                                    {{#if triggerCount}} style="background: {{andonType.touchColor}};"  {{else}} style="background: {{andonType.normalColor}};"   {{/if}}>
+                                        <div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle" class="andon-list-item-txt  font-50">{{triggerCount}}</div>
+                                        <div class="andon-dashed-line"></div>
+                                        <div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-24">{{andonType.typeText}}</div>
+                                    </a>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </script>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
+                <div class="swiper-pagination andonMonitoring-swiper-pagination" id="andonMonitoringSwiperPg"></div>
+            </div>
+        </div>
+
+        <div class="table-panel">
+            <table class="table-bordered table-striped">
+                <thead>
+                    <th data-i18n="COMMON.T.NO"></th>
+                    <th data-i18n="COMMON.T.WORKCENTER"></th>
+                    <th data-i18n="COMMON.T.STATION"></th>
+                    <th data-i18n="COMMON.T.TYPE"></th>
+                    <th data-i18n="COMMON.T.STATUS"></th>
+                    <th data-i18n="ANDON.T.TOUCH_TOTAL_TIME"></th>
+                    <th data-i18n="ANDON.T.TOUCH_TIME"></th>
+                    <th data-i18n="ANDON.T.TOUCH_PERSON"></th>
+                    <th data-i18n="COMMON.T.REMARK"></th>
+                </thead>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<!--  <script type="text/html" id="andonMonitoringTpl">
+            {{#each this}}
+            <div class="col-{{colWidth}} andon-list-item">
+                <a type="andonType" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y"
+                   class="running-link button" andonTypeCode="{{andonTypeCode}}" {{#if num>0}}style="background:#FF0000"{{else}}background="#00FF00"{{/if}}>
+                    <div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle"
+                         class="andon-list-item-txt h60">
+                        <span class="font-38">{{num}}</span>
+                    </div>
+                    <div class="dashed-line"></div>
+                    <div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-25">
+                        {{typeText}}
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </script> -->

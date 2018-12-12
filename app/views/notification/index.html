@@ -1,0 +1,84 @@
+ <!--消息页面-->
+<div data-page="notification_index" class="page bg-gray notification">
+	<div sw-role="cell" class="tabs-wrap">
+		<div sw-role="cell" class="tab-links sys-notifications-menu">
+			<a href="#tab1" class="button tab-link active" data-i18n="COMMON.B.ALL"></a>
+			<a href="#tab2" class="button tab-link" data-i18n="COMMON.B.MESSAGE"></a>
+			<a href="#tab3" class="button tab-link" data-i18n="COMMON.B.NOTICE"></a>
+		</div>
+		<div sw-role="cell" class="sys-notifications-menu-button readFlagBtns">
+			<button class="allShowBtn buttonActive">全部</button>
+			<button class="readShowBtn">已读</button>
+			<button class="unreadShowBtn">未读</button>
+		</div>
+	</div>
+	<div class="tabs-swipeable-wrap tabs-notification">
+		<div class="tabs">
+			<div id="tab1" class="page-content tab active infinite-scroll">
+				<div class="renderWrap">
+					<ul id="msgRednder1">
+
+                    </ul>
+					<div class="have-no-more">
+						没有更多了
+					</div>
+				</div>
+			</div>
+			<div id="tab2" class="page-content tab infinite-scroll">
+				<div class="renderWrap">
+					<ul id="msgRednder2"></ul>
+					<div class="have-no-more">
+						没有更多了
+					</div>
+				</div>
+			</div>
+			<div id="tab3" class="page-content tab infinite-scroll">
+                <div class="renderWrap">
+                    <ul id="msgRednder3"></ul>
+                    <div class="have-no-more">
+                        没有更多了
+                    </div>
+                </div>
+			</div>
+			<script type="text/html" id="msgTpl">
+				{{#each list}}
+				<li class="inf-brief {{extClass}}" messageID="{{messageID}}" >
+					<div class="inf-title" sw-role="cell" sw-mode="x">
+						<div sw-role="cell" sw-layout="fit">[{{messageType}}]{{messageCode}}</div>
+						<div sw-role="cell">{{messageTime}}</div>
+					</div>
+					<div class="row content">
+						<div class="inf-content col-95 content-overflow">
+							<div class="content-txt">
+							{{messageContent}}
+							</div>
+						</div>
+						<div  class="col-5 expandBtn" sw-align='right'>
+							<a  href="#">展开</a>
+						</div>
+					</div>
+				</li>
+				{{/each}}
+			</script>
+		</div>
+	</div>
+</div>
+
+
+ <!--<li class="inf-brief un-read" messageID="123564" >-->
+ <!--<div class="inf-title" sw-role="cell" sw-mode="x">-->
+ <!--<div sw-role="cell" sw-layout="fit">[消息]消息标题111111111111125555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555</div>-->
+ <!--<div sw-role="cell">2017-04-11 11:00:38</div>-->
+ <!--</div>-->
+ <!--<div class="row content">-->
+ <!--<div class="inf-content col-95 content-overflow">-->
+ <!--<div class="content-txt">-->
+ <!--消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容消息内容-->
+ <!--</div>-->
+ <!--</div>-->
+ <!--<div  class="col-5 expandBtn" sw-align='right'>-->
+ <!--<a href="#">展开</a>-->
+ <!--</div>-->
+ <!--</div>-->
+ <!--</li>-->
+

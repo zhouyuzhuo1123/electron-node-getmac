@@ -11,6 +11,7 @@
     "electron-prebuilt": "^1.4.13"
   },
   "dependencies": {
-    "getmac": "^1.2.1"
+    "getmac": "^1.2.1",
+    "serialport": "^6.0.4"
   }
 }

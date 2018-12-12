@@ -1,0 +1,123 @@
+<!-- 工位缺陷实时监控 --> 
+<div data-page="pqc_realTimeMonitoringOfPositionDefect" class="page bg-gray pqc_realTimeMonitoringOfPositionDefect">
+    <div class="page-content content">
+        <div class="realTimeTop">
+            <div class="select-one">
+                <!-- <label>时间：</label> -->
+                <input name="date" type=radio value="0" checked=checked><span class="day">当日（--）</span>
+                <input name="date" type=radio value="1"><span class="week">本周（--）</span>
+                <input name="date" type=radio value="2"><span class="month">本月（--）</span>
+                <!-- <label class="f-ml10">频次：</label> -->
+                <input name="frequency" type=radio value="1" checked=checked><span class="frequency1 f-ml10">频次≥1</span>
+                <input name="frequency" type=radio value="2"><span class="frequency2">频次≥2</span>
+                <input name="frequency" type=radio value="3"><span class="frequency3">频次≥3</span>
+            </div>
+        </div>
+
+        <div class="table-panel realTimeTable">
+            <table class="table-bordered table-striped">
+                <thead>
+                    <th>序号</th>
+                    <th>产品标识</th>
+                    <th>部位</th>
+                    <th>方位</th>
+                    <th>缺陷类型</th>
+                    <th>责任类型</th>
+                    <th>严重度</th>
+                    <th>安装工位</th>
+                    <th>检验时间</th>
+                    <th>检验人</th>
+                    <th>问题状态</th>
+                </thead>
+            </table>
+        </div>
+
+        <!-- <div class="info">
+            <h5>逻辑说明：12312312312312312312</h5>
+            <p>
+                1、默认按用户所在工位筛选安装工位，显示当天的数据，按检验时间倒排序，统计频次为所有；<br>
+                2、当日时间取值范围：如今日为11月30日，当日为11月30日7:00-12月1日7:00；
+                本周时间取值范围：当前时间所在周，11月27日为周一，本周为11月27日7:00-12月4日7:00；
+                本月时间取值范围：当前时间所在月，如今日为11月30日，本月为11月1日7:00-12月1日7:00；<br>
+                3、频次地计算逻辑：相同部位、相同缺陷类型刷选范围内重复出现；<br>
+                4、缺陷采集或补录入时监控用户对应站点数据更新情况，自动触发更新界面。<br>
+            </p>
+        </div> -->
+
+    </div>
+    <style>
+        .content {
+            margin:10px;
+            padding:10px;
+            background: white;
+            min-width: 1010px;
+        }
+        .realTimeTop{
+            padding: 15px;
+            font-size: 18px;
+            color: #595959;
+            padding-top:0;
+        }
+
+        .realTimeTop label {
+            height: 100%;
+            display: inline-block;
+            color: #409EFF;
+            border: 1px solid #CAE5FF;
+            background: #ECF6FF;
+            padding: 0 10px 0 15px;
+        }
+
+        .realTimeTop input {
+            color:#222222;
+            margin-left: 18px;
+            width: 20px;
+            height: 20px;
+            vertical-align: text-bottom;
+        }
+
+        .select-two {
+            margin-top: 15px;
+        }
+
+        .select-one, .select-two{
+            height: 42px;
+            line-height: 42px;
+        }
+
+        .realTimeTable {
+            /* bottom: 0px;
+            position: absolute;
+            top: 67px;
+            overflow: hidden;
+            width: 98%; */
+            
+        }
+ 
+        .pqc_realTimeMonitoringOfPositionDefect .dataTable{
+            border-bottom: 1px solid #8080804f;
+         }
+        .info {
+            position: absolute;
+            bottom: 20px;
+            height: 140px;
+        }
+
+        .info h5{
+            font-size: 14px;
+            margin: 0;
+            margin-bottom: 10px;
+            font-weight: normal;
+            border-left: 2px solid red;
+            text-indent: 5px;
+        }
+
+        .info p {
+            color:#595959;
+        }
+
+        .day, .week, .month {
+            font-weight: bold;
+        }
+    </style>
+</div>

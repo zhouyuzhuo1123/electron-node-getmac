@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "entry": {},
+  "dependencies": {
+    "rxjs": "^5.4.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.17.2",
+    "cross-env": "^4.0.0",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-filter": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-inject": "^4.1.0",
+    "gulp-less": "^3.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "path": "^0.12.7",
+    "webpack": "^1.13.2"
+  },
+  "scripts": {
+    "server": "http-server -p 9001",
+    "start": "cross-env NODE_ENV=dev gulp dev",
+    "test:production": "cross-env NODE_ENV=production gulp dev",
+    "build": "cross-env NODE_ENV=dev gulp build",
+    "build:test": "cross-env NODE_ENV=test gulp build",
+    "build:production": "cross-env NODE_ENV=production gulp build"
+  }
+}

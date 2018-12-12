@@ -1,0 +1,34 @@
+<!-- ANDON质量页面 -->
+<div data-page="andon_andonQuality" class="page bg-gray">
+	<div class="page-content">
+		<label id="cs"></label>
+		<div class="h30"></div>
+		<div class="swiper-container andonListPanel" id="andonQualitySwiper">
+			<div id="andonQualitySwiperRender" class="swiper-wrapper"></div>
+			<script type="text/html" id="andonQualitySwiperTpl">
+				{{#each groupAndons}}
+					<div class="swiper-slide">
+						<div class="row andon-swiper-box">
+							{{#each this}}
+							<div class="col-100 tablet-25 andon-list-item">
+								<a  type="andon" sw-role="cell" sw-align="center" sw-valign="middle" sw-mode="y" andonCode="{{andonCode}}" andonText="{{andonText}}" touchTimeLong="{{touchTimeLong}}" workUnitCode="{{workUnitCode}}" templateCode="templateCode" statusECode={{statusECode}} switchOnDateTime="{{switchOnDateTime}}" class="andon-item-button running-link button" touchColor="{{touchColor}}" normalColor="{{normalColor}}">
+									<div sw-role="cell" sw-align="center" sw-layout="fit" sw-valign="middle" class="andon-list-item-txt">{{andonText}}</div>
+									<div class="andon-dashed-line"></div>
+									<div sw-role="cell" sw-align="center" sw-valign="middle" class="touch-time font-36">{{touchTimeStr}}</div>
+								</a>
+							</div>
+							{{/each}}
+						</div>
+					</div>
+				{{/each}}
+			</script>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
+		</div>
+		<div class="h40">
+			<div class="custom-swiper-pagination swiper-pagination " id="andonQualitySwiperPg"></div>
+		</div>
+	</div>
+</div>
+

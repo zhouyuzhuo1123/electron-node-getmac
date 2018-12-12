@@ -1,0 +1,183 @@
+<div data-page="pcs_dailyWork2" class="page bg-gray baogong">
+	<div class="page-content flex-col" id="baogong">
+		<div sw-role="cell" sw-mode="y">
+            <div sw-role="cell" class="topbar">
+                <div sw-role="cell" class="topbar-form">
+                    <div sw-role="cell" class="topbar-form-item big-item w100p">
+                        <div sw-role="cell" class="topbar-key">
+                            <label for="" class="topbar-label">
+                                产品标识号
+                            </label>
+                        </div>
+                        <div sw-role="cell" class="topbar-value">
+                            <input id="productNum" value="" type="text" autofocus="autofocus" />
+                        </div>
+                    </div>
+                </div>
+                <div sw-role="cell" class="topbar-opt big-item">
+                	<a href="#" class="topbar-button button button-fill color-cyan getData">获取</a>
+                    <a href="#" class="topbar-button button button-fill color-cyan open-client-popup">报工</a>
+                    <!-- <a href="#" class="topbar-button button button-fill color-cyan" name="btnRefresh">刷新</a> -->
+                    <!-- <a href="#" class="topbar-button button button-fill color-cyan" name="btnConfigSet" data-enable-config-set=false>设置</a> -->
+                </div>
+            </div>
+        </div>
+		<div id="baogong-content-tpl" sw-role="cell" sw-mode="y">
+			<div sw-role="cell" sw-mode="y" class="content" id="content-header">
+				<div class="line" sw-role="cell">
+					<div class="form-input">
+						<span class="name">生产顺序号</span><span class="value">--</span>
+					</div>
+					<div class="form-input">
+						<span class="name">物料编码</span><span class="value">--</span>
+					</div>
+				</div>
+				<div class="line" sw-role="cell">
+					<div class="form-input">
+						<span class="name">产品描述</span><span class="value">--</span>
+					</div>
+				</div>
+			</div>
+			<div sw-role="cell" sw-layout="fit" class="content-des">
+				<div class="order-table" id="content-left">
+					<div class="product-num-des">
+						<span class="productNum">订单号(**)</span>
+						<span class="num">--/--</span>
+					</div>
+					<div class="client-input">
+						<p class="explain">特殊说明</p>
+						<div class="input-line">
+							<lable>出口国家</lable>
+							<span>text</span>
+						</div>
+						<div class="input-line">
+							<lable>颜色</lable>
+							<span>text</span>
+						</div>
+						<div class="input-line">
+							<lable>唛头号码</lable>
+							<span>text</span>
+						</div>
+						<div class="input-line">
+							<lable>外销发票号</lable>
+							<span>text</span>
+						</div>
+					</div>
+					<div class="remarks" sw-layout="fit">
+						<p class="explain">备注</p>
+						<div class="remarks-content">此处暂时不支持使用</div>
+					</div>
+				</div>
+				<div class="plane-table" id="content-right" sw-role="cell" sw-layout="fit" sw-mode="y">
+					<div class="tab-btn" sw-role="cell">
+						<!-- <a class="selected" data-id="0" sw-layout="fit">计划队列</a> -->
+						<a class="selected" data-id="1" sw-layout="fit">报工明细</a>	
+					</div>
+					<div class="table-list">
+						<div class="plane-table-list table-panel andonLog-table z-hide">
+							<table  class="table-bordered table-striped" width="100%" align="center">
+								<thead>
+									<th>计划顺序</th>
+									<th>产品规格</th>
+									<th>剩余数量</th>
+									<th>标识号明细</th>
+									<th>顺序号明细</th>
+								</thead>
+							</table>
+						</div>
+
+						<div class="plane-table-dailywork table-panel andonLog-table z-show">
+							<table class="table-bordered table-striped" width="100%" align="center">
+								<thead>
+									<th >行号</th>
+									<th >生产顺序号</th>
+									<th >产品标识号</th>
+									<th >车型描述</th>
+									<th >报工数量</th>
+									<th >报工时间</th>
+								</thead>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+        <script type="text/html" id="baogongTplContent">
+			<div class="line" sw-role="cell">
+				<div class="form-input">
+					<span class="name">生产顺序号</span><span class="value">{{product.productionSeqNum}}</span>
+				</div>
+				<div class="form-input">
+					<span class="name">物料编码</span><span class="value">{{product.materialCode}}</span>
+				</div>
+			</div>
+			<div class="line" sw-role="cell">
+				<div class="form-input">
+					<span class="name">产品描述</span><span class="value">{{product.carDescription}}</span>
+				</div>
+			</div>
+			<div class="line" sw-role="cell">
+				{{#if hasConfigEnums}}
+					{{#each configEnums}}
+					<div class="form-input">
+						<span class="name">{{this.configText}}</span>
+						<span class="value">{{this.valueText}}</span>
+					</div>
+					{{/each}}
+				{{/if}}
+			</div>
+		</script>
+		<script type="text/html" id="baogongTplContentDesLeft">
+			<div class="product-num-des">
+				<span class="productNum">订单号({{orderPlan.productionOrderNum}})</span>
+				<span class="num">{{orderPlan.onlineQuantity}}/{{orderPlan.plannedQuantity}}(已上线/计划数量)</span>
+			</div>
+			<div class="client-input">
+				<p class="explain">特殊说明</p>
+				<div class="input-line">
+					<lable>出口国家</lable>
+					<span>text</span>
+				</div>
+				<div class="input-line">
+					<lable>颜色</lable>
+					<span>text</span>
+				</div>
+				<div class="input-line">
+					<lable>唛头号码</lable>
+					<span>text</span>
+				</div>
+				<div class="input-line">
+					<lable>外销发票号</lable>
+					<span>text</span>
+				</div>
+			</div>
+			<div class="remarks" sw-layout="fit">
+				<p class="explain">备注</p>
+				<div class="remarks-content">此处暂时不支持使用</div>
+			</div>
+        </script>
+        <script type="text/html" id="baogongTplContentDesRight">
+			<table  width="100%" align="center">
+				<thead>
+					<tr>
+						<th>计划顺序</th>
+						<th>产品规格</th>
+						<th>剩余数量</th>
+						<th>标识号明细</th>
+						<th>顺序号明细</th>
+					</tr>
+				</thead>
+				{{#each data}}
+					<tr>
+						<td>{{@index}}</td>
+						<td>{{this.materialText}}</td>
+						<td>{{this.unscheduledQuantity}}</td>
+						<td><div class="productNumList" data-num="{{this.productNumList}}">{{this.productNum}}</div></td>
+						<td><div class="productNumList" data-num="{{this.productTrackNumList}}">{{this.productTrackNum}}</div></td>
+					</tr>
+				{{/each}}
+			</table>
+		</script>
+	</div>
+</div>

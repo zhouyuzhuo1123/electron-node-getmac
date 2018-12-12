@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>易云科技GMES-PAD-Client</title>
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+
+    <!-- 登录视图开始 -->
+    <div class="login-screen modal-in">
+        <div class="view">
+            <div class="page" data-page="login">
+                <div sw-role="cell" sw-mode="y" class="page-content login-screen-content">
+                    <div sw-role="cell" sw-layout="fit" sw-align="center" sw-valign="middle">
+                        <div class="login-panel input-shine" sw-role="cell">
+                            <div class="login-panel-inner" sw-role="cell" sw-layout="fit" sw-mode="y">
+                                <div sw-role="cell" sw-align="center">
+                                    <div class="avatar"></div>
+                                </div>
+                                <div sw-role="cell" sw-align="center" class="margin-t-10 margin-b-10 font-16" data-i18n="APP.NAME">
+                                </div>
+
+                                <form class="ajax-submit-onchange" id="loginForm">
+                                    <div sw-role="cell" class="login-input">
+                                        <div sw-role="cell" sw-layout="fit" class="item-input">
+                                            <input type="text" name="username" id="loginName" placeholder="" data-i18n-placeholder="LOGIN.T.USERNAME">
+                                        </div>
+                                        <div sw-role="cell">
+                                        </div>
+                                    </div>
+                                    <div sw-role="cell" class="login-input">
+                                        <div sw-role="cell" sw-layout="fit" class="item-input">
+                                            <input type="password" name="password" id="loginPsw" placeholder="" data-i18n-placeholder="LOGIN.T.PASSWORD">
+                                        </div>
+                                        <div sw-role="cell">
+                                        </div>
+                                    </div>
+                                    <div sw-role="cell">
+                                        <button type="button" sw-layout="fit" id="loginButton" class="button button-fill h44" data-i18n="LOGIN.B.LOGIN">登录</button>
+                                    </div>
+                                </form>
+
+                                <div sw-role="cell" sw-mode="x-equal" class="margin-t-15 margin-b-10">
+                                    <div sw-role="cell">
+                                        <a href="#" id="forgetUser" data-i18n="LOGIN.B.FORGET_PASSWORD"></a>
+                                    </div>
+                                    <div sw-role="cell" sw-align="right">
+                                        <a href="#" id="loginChangeLang" data-i18n="LOGIN.B.SWITCH_LANGUAGE"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div sw-role="cell" sw-align="center" sw-valign="middle" class="login-copyright">©2017 杭州吉利易云科技有限公司 版权所有</div>
+                    <div id="particles-js"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 登录视图结束 -->
+
+    <!-- 主体视图集合开始 -->
+    <div class="views">
+        <div class="view view-header">
+            <div class="index-topbar-outer">
+                <div sw-role="cell" class="index-topbar">
+                    <div sw-role="cell" class="logo-bar">
+                        <div sw-role="cell" class="margin-l-10 margin-r-10">
+                            <a href="javascript:;" data-view=".view-main" class="f-goHome">
+                                <div class="logo" name="index"></div>
+                            </a>
+                            <div class="breadcrumb" id="breadcrumbRender"></div>
+                            <script type="text/html" id="breadcrumbTpl">
+                                {{#if breadcrumbs}} {{#each breadcrumbs}} -{{this}} {{/each}} {{/if}}
+                            </script>
+                        </div>
+                    </div>
+                    <div class="company-logo-bar  sw-flex-row-reverse" sw-role="cell" sw-layout="fit">
+                        <div class="company-logo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mainView" class="view view-main row no-gutter flex-wrap">
+            <div class="page-content sidebar" name="sidebarView">
+                <div sw-role="cell" sw-mode="y" class="h100p">
+                    <div sw-role="cell" sw-layout="fit" class="quick-start-body quick-start-body-height bg-gray h100p">
+                        <div sw-role="cell" class="nav-menu-box hide h100p">
+                            <div sw-role="cell" sw-mode="y" class="nav-menu">
+                                <a href="views/userCenter/userCenter.html" sw-role="cell" sw-valign="middle" class="user-bar padding-t-5 padding-b-5 close-popup">
+                                    <div sw-role="cell" class="margin-l-10 margin-r-10">
+                                        <p data-view=".view-main" class="item-link close-popup">
+                                            <div class="avatar"></div>
+                                        </p>
+                                    </div>
+                                    <div sw-role="cell" sw-mode="y" sw-layout="fit" id="quickUserInfoRender"></div>
+                                    <script type="text/html" id="userInfoTpl">
+                                        <div sw-role="cell" sw-valign="middle">
+                                            <span class="font-16">{{userText}}</span>
+                                            <span class="margin-l-10">({{userCode}})</span>
+                                        </div>
+                                        <div sw-role="cell" class="font-12">
+                                        </div>
+                                    </script>
+                                </a>
+                                <div sw-role="cell" sw-layout="fit" class="overflow-auto">
+                                    <div class="list-block accordion-list w100p nav-list">
+                                        <!-- 导航菜单 -->
+                                        <ul id="navMenuRender"></ul>
+                                        <!-- 导航菜单模板 -->
+                                        <script type="text/html" id="navMenuTpl">
+                                            <li class="accordion-item accordion-item-expanded phone-style position-relative">
+                                                <div class="favor-setting">
+                                                    <button sw-role="cell" sw-valign="middle" class="button" id="setFavorBtn">
+                                                        <i class="ion ion-android-settings"></i>
+                                                        <span>设置收藏</span>
+                                                    </button>
+                                                </div>
+                                                <a href="#" class="item-content item-link {{#if url}}close-popup{{/if}}">
+                                                    <div class="item-inner">
+                                                        <div class="item-title">个人收藏</div>
+                                                    </div>
+                                                </a>
+                                                <div class="accordion-item-content">
+                                                    <div class="content-block">
+                                                        <ul>
+                                                            {{#favorMenu}}
+                                                            <li><a href="{{#if url}}{{url}}{{else}}#{{/if}}" data-view=".view-main" data-id="{{menuCode}}" data-title="{{menuText}}" data-url="{{url}}" data-module-code={{module.moduleCode}} data-module-group-code={{module.moduleGroupCode}} data-module-type={{module.moduleType}} class="running-link item-link close-popup">{{menuText}}</a></li>
+                                                            {{/favorMenu}}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                {{/if}}
+                                            </li>
+                                            {{#navMenu}}
+                                            <li {{#if children}} class="accordion-item {{#js_compare " this.id=='1' "}}phone-style accordion-item-expanded{{/js_compare}}"{{/if}}>
+                                                <a {{#if url}} href="{{data.url}}" data-view=".view-main" {{else}} href="#" {{/if}} class="item-content item-link {{#if data.url}}close-popup{{/if}}">
+                                                    <div class="item-inner">
+                                                        <div class="item-title">{{data.menuText}}</div>
+                                                    </div>
+                                                </a>
+                                                {{#if children}}
+                                                <div class="accordion-item-content">
+                                                    <div class="content-block">
+                                                        <ul>
+                                                            {{#children}} {{#if data.module}}
+                                                            <li><a href="{{#if data.url}}views/{{data.url}}{{else}}#{{/if}}" data-view=".view-main" data-id="{{data.menuCode}}" data-title="{{data.menuText}}" data-url="views/{{data.url}}" data-module-code={{data.module.moduleCode}} data-module-group-code={{data.module.moduleGroupCode}} data-module-type={{data.module.moduleType}} class="running-link item-link close-popup">{{data.menuText}}</a></li>
+                                                            {{/if}} {{/children}}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                {{/if}}
+                                            </li>
+                                            {{/navMenu}}
+                                        </script>
+                                    </div>
+                                </div>
+                                <div sw-role="cell" sw-mode="x-equal" class="nav-menu-btm">
+                                    <div sw-role="cell">
+                                        <a href="#" sw-role="cell" sw-valign="middle" sw-align="center" sw-layout="fit" class="button" id="btnLoginOut"><i class="ion ion-power"></i><span>安全退出</span> </a>
+                                    </div>
+                                    <div sw-role="cell" sw-valign="middle">
+                                        <a href="#" sw-role="cell" sw-valign="middle" sw-align="center" sw-layout="fit" class="button close-popup" id="fullScreenButton"> <i class="ion ion-android-contract"></i><span>最大化</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="div9527"></div>
+            <div class="pages down main-pages" id="pcsFullpageEl"></div>
+        </div>
+        <!-- 底部栏视图 -->
+        <div class="view view-bottombar">
+            <div class="pages">
+                <div sw-role="cell" data-page="bottombar" class="page bottom-bar">
+                    <div sw-role="cell" sw-mode="x-equal" class="bottom-navbar bottom-spliter">
+                        <div sw-role="cell">
+                            <!--<a href="#" sw-role="cell" sw-valign="middle" sw-align="center" class="button active "-->
+                            <!--name="home">-->
+                            <a href="#" sw-role="cell" sw-valign="middle" sw-align="center" class="button active " name="sidebar">
+                                <span sw-role="cell" class="home"></span>
+                            </a>
+                        </div>
+                        <div sw-role="cell">
+                            <a href="#" data-popup=".popup-running" sw-role="cell" sw-valign="middle" sw-align="center" class="button open-popup">
+                                <span sw-role="cell" class="clock"></span>
+                            </a>
+                        </div>
+                        <div sw-role="cell">
+                            <a href="views/notification/index.html" data-view=".view-main" sw-role="cell" sw-valign="middle" sw-align="center" class="button">
+                                <span sw-role="cell" class="bell"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div sw-role="cell" sw-mode="x-equal" class="bottom-navbar" name="custom-bottom-navbar"></div>
+                    <div sw-role="cell" sw-layout="fit" sw-align="right" class="padding-r-15 padding-t-10" sw-mode="y">
+                        <div id="mainTimeInfoRender">
+                        </div>
+                        <script type="text/html" id="timeInfoTpl">
+                            <div sw-role="cell" sw-valign="middle" sw-align="right">
+                                <span class="font-18">{{time}}</span>
+                            </div>
+                            <div sw-role="cell" sw-valign="middle">
+                                <span class="font-14">{{dayInfo}}</span>
+                            </div>
+                        </script>
+                        <div sw-role="cell" sw-valign="middle">
+                            <span class="font-14" name="connectState">
+                                <div class="heart-updown">
+                                    <canvas id="canvas" width="40" height="20"></canvas>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主体视图集合结束 -->
+
+    <!-- 添加快捷菜单开始 -->
+    <div class="popup popup-selectFavorMenu">
+        <div class="view navbar-fixed">
+            <div class="pages">
+                <div class="page">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="center">添加快捷菜单</div>
+                            <div class="right"></div>
+                        </div>
+                    </div>
+                    <div class="page-content">
+                        <div sw-role="cell" sw-mode="y" sw-layout="fit" class="h100p">
+                            <!-- 选择收藏列表 -->
+                            <div sw-role="cell" sw-layout="fit" class="overflow-auto">
+                                <div class="list-block w100p">
+                                    <form action="" id="checkFavorForm">
+                                        <ul id="eidtFavorAllMenuRender"></ul>
+                                    </form>
+                                    <script type="text/html" id="editFavorAllMenuTpl">
+                                        {{#navMenu}}
+                                        <li class="item-divider">{{data.menuText}}</li>
+                                        {{#children}} {{#if data.module}}
+                                        <li>
+                                            <label class="label-checkbox item-content">
+                                                <!-- Checked by default -->
+                                                <input type="checkbox" name="checkFavor" value="{{data.menuCode}}||{{data.module.moduleCode}}||{{data.module.moduleGroupCode}}||{{data.module.moduleType}}" {{#if data.isFavorite}}checked="checked" {{/if}}>
+                                                <div class="item-media">
+                                                    <i class="icon icon-form-checkbox"></i>
+                                                </div>
+                                                <div class="item-inner">
+                                                    <div class="item-title w-auto">{{data.menuText}}</div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        {{/if}} {{/children}} {{/navMenu}}
+                                    </script>
+                                </div>
+                            </div>
+                            <div sw-role="cell" sw-mode="x-equal" class="padding-t-10 padding-b-10">
+                                <div sw-role="cell" sw-align="center" class="padding-l-15 padding-r-5">
+                                    <a href="#" sw-layout="fit" class="button button-fill button-raised add-favor-ok">确定</a>
+                                </div>
+                                <div sw-role="cell" sw-align="center" class="padding-l-5 padding-r-15">
+                                    <a href="#" sw-layout="fit" class="button button-raised add-favor-cancel">取消</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 添加快捷菜单结束 -->
+
+    <!-- 正在运行开始 -->
+    <div class="popup popup-running">
+        <div class="view navbar-fixed">
+            <div class="pages">
+                <div class="page">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="center">已运行功能</div>
+                            <div class="right">
+                                <a href="#" data-popup=".popup-running" sw-role="cell" sw-valign="middle" sw-align="center" class="button close-popup font-18">
+                                    <i class="ion ion-android-close"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content bg-gray">
+                        <div class="quick-menus popup-running-body">
+                            <div sw-role="cell" sw-mode="wrap" id="runningList"></div>
+                            <script type="text/html" id="runningListTpl">
+                                <div class="quick-menu-item-box" data-id="{{id}}">
+                                    <div class="quick-menu-item">
+                                        <a href="views/{{url}}" sw-role="cell" sw-valign="middle" sw-align="center" data-id="{{id}}" class="quick-menu-item-inner close-popup button">
+                                            {{title}}
+                                        </a>
+                                        <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="del-running">
+                                            <i class="ion ion-close-circled"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </script>
+                            <div sw-role="cell" sw-align="center" sw-valign="middle" class="popup-running-btm">
+                                <a href="#" class="button button-fill w100 clear-running">全部清除</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 正在运行结束 -->
+
+    <!-- 小部件开始 -->
+    <div class="popup popup-widget-choose">
+        <div class="view navbar-fixed">
+            <div class="pages">
+                <div class="page">
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <div class="center">请选择小部件</div>
+                            <div class="right">
+                                <a href="#" data-popup=".popup-widget-choose" sw-role="cell" sw-valign="middle" sw-align="center" class="button close-popup font-18">
+                                    <i class="ion ion-android-close"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-content bg-gray">
+                        <div class="quick-menus popup-running-body">
+                            <div sw-role="cell" sw-mode="wrap" id="runningList"></div>
+                            <script type="text/html" id="runningListTpl">
+                                <div class="quick-menu-item-box" data-id="{{id}}">
+                                    <div class="quick-menu-item">
+                                        <a href="views/{{url}}" sw-role="cell" sw-valign="middle" sw-align="center" data-id="{{id}}" class="quick-menu-item-inner close-popup button">
+                                            {{title}}
+                                        </a>
+                                        <a href="#" sw-role="cell" sw-align="center" sw-valign="middle" class="del-running">
+                                            <i class="ion ion-close-circled"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </script>
+                            <div sw-role="cell" sw-align="center" sw-valign="middle" class="popup-running-btm">
+                                <a href="#" class="button button-fill w100 clear-running">确定</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 小部件结束 -->
+
+    <!-- 公共部分弹层开始 About Popup -->
+    <div class="popup popup-public">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center">添加快捷菜单</div>
+                <div class="right"><p><a href="#" class="close-popup whole-close">关闭</a></div>
+            </div>
+        </div>
+
+        <div class="content-block"></div>
+    </div>
+    <!-- 公共部分弹层结束 -->
+
+    <!-- 右侧侧边栏开始 -->
+    <div class="panel panel-right panel-cover">
+        <div class="view view-right-panel">
+            <div class="pages">
+            </div>
+        </div>
+    </div>
+    <!-- 右侧侧边栏结束 -->
+    
+    <!-- 左侧侧边栏开始 -->
+    <div class="panel panel-left panel-cover">
+        <div class="left-cont"></div>
+    </div>
+    <!-- 左侧侧边栏结束 -->
+
+   	<script src="./assets/js/common.js"></script>
+	<script src="./assets/js/app.js"></script>
+</body>
+
+</html>

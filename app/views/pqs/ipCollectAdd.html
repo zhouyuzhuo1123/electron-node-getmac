@@ -1,0 +1,141 @@
+<!-- 关重件补录html -->
+<div data-page="pqs_ipCollectAdd" class="page bg-gray">
+	<div class="page-content" >
+		<!-- 下侧弹出框 -->
+		<div class="masked close-picker"></div>
+		<div class="picker-modal picker-1 ipCollect-paner-body">
+			<div class="picker-modal-inner">
+				<div class="content-block content-block-edit">
+					<h4 data-i18n="KEYPART.T.COLLECT_INFO_MODIFY"></h4>
+					<div class="infoTake">
+                        <div class="infoTake-component">
+                            <label class="labelName" data-i18n="KEYPART.T.MATERIAL_NO">组件号</label>
+                            <input type="text" id="ipCollect-component" readonly="readonly" disabled="disabled"/>
+                        </div>
+                        <div  class="infoTake-component" id="supplierListRender">
+                            <!--<label>供应商</label>
+                            <input type="text" id="kcopc-supplier"/>-->
+                        </div>
+                        <div  class="infoTake-component">
+                            <label data-i18n="KEYPART.T.BATCH" class="labelName">批次</label>
+                            <input type="text" id="ipCollect-batchNumber"  class="text-upperCase"/>
+                        </div>
+                        <div class="content-block-button">
+                        	<button class="close-picker ipCollect-cancel">取消</button>
+                            <button class="close-picker ipCollect-confirm">确认</button>
+                        </div>
+                    </div>
+				</div>
+				<script type="text/html" id="supplierListTpl">
+                	<label data-i18n="KEYPART.T.SUPPLIER" class="labelName infoTakkLabel"></label>
+					<div class="supplierDiv">
+						{{#each supplierList}}
+							<div class="radio-supplier" style="float:left">
+								<input type="radio" name="provider" id={{supplierCode}} value={{supplierCode}}>
+								<label for={{supplierCode}}>
+									<span>{{supplierText}}</span>
+									<i class="radio-ico"></i>
+								</label>
+							</div>
+						{{/each}}
+					</div>
+	            </script>
+			</div>
+		</div>
+
+		<div class="ipCollect-head">
+			<div class="ipCollect-head-panel" sw-role="cell">
+				<div class="ipCollectAdd-head-query">
+					<div class="ipCollectAdd-head-query-input">
+						<div class="ipCollectAdd-head-query-num1">
+							<label data-i18n="KEYPART.T.PRODUCT_NO"></label>
+							<input type="text" id="productmark" class="text-upperCase" />
+						</div>
+						<div class="ipCollectAdd-head-query-num1">
+							<label data-i18n="KEYPART.T.BATCH_NO"></label>
+							<input type="text" id="lotBarCodeInput" class="text-upperCase" />
+						</div>
+					</div>
+					<div class="ipCollectAdd-Query-site boxPage"  sw-role="cell">
+						<div class="ipCollectAdd-Query-site-allnum limegreen box">
+							<div class="ipCollectAdd-Query-site-num-allfield">
+								<label>总:</label>
+								<span class="stationNum">0</span>
+							</div>
+						</div>
+						<div class="ipCollectAdd-Query-site-json" id="ipCollectAdd-querySiteRender">
+							  
+						</div>
+						<script type="text/html" id="ipCollectAdd-countInfSiteTpl">
+							<div class="ipCollectAdd-Query-site-json-num box {{extClass}}" station="{{stationCode}}">
+								<div class="ipCollectAdd-Query-site-num-field">
+									<label>{{stationCode}}</label>:
+									<span class="ipCollectAdd-Query-site-num-field-span">{{undoCount}}</span>
+								</div>
+								<div class="ipCollectAdd-link"></div>
+							</div>
+						</script>
+					</div>
+				</div>
+				<div class="ipCollect-head-button">
+					<div class="ipCollect-head-number">
+						<span class="ipCollect-head-num1" id="currentNum">0</span>/
+						<span class="ipCollect-head-num2" id="allNum">0</span>
+					</div>
+					<div class="ipCollectAdd-head-button-submit">
+						<button class="head-confirm" data-i18n="COMMON.B.SAVE"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="table-panel">
+			<table class="table-bordered table-striped ipCollect-table" id="ipCollectAdd-example">
+				<thead>
+					<th data-i18n="KEYPART.T.MATERIAL_NO"></th>
+					<th data-i18n="KEYPART.T.SUPPLIER"></th>
+					<th data-i18n="KEYPART.T.BATCH"></th>
+					<th data-i18n="KEYPART.T.MATERIAL_DESC"></th>
+					<th data-i18n="KEYPART.T.SUPPLIER_DESC"></th>
+					<th data-i18n="COMMON.T.OPERATION"></th>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<!--<tbody id="ipCollectReader" class="content-block">
+	<script type="text/html" id="ipCollectTpl">
+		{{#each ipCollectMenu}}
+		<tr class="ipCollectReader-tr">
+			<td class="td-ipCollect">{{serial}}</td>
+			<td class="ipCollect-component-value">{{component}}</td>
+			<td>{{piece}}</td>
+			<td class="ipCollect-open-picker-supplier-value"><a href="#" class="open-picker ipCollect-open-picker">{{supplier}}</a></td>
+			<td class="ipCollect-open-picker-batch-value"><a href="#" class="open-picker ipCollect-open-picker">{{batch}}</a></td>
+			<td>{{componentDescription}}</td>
+			<td>{{SupplierDescribe}}</td>
+			<td>
+				<button type="ipCollect" class="delBtn">
+					撤销
+				</button>
+			</td>
+		</tr>
+		{{/each}}
+	</script>-->
+
+	<!--<script type="text/html" id="ipCollectAdd-querySiteTpl">-->
+	<!--&lt;!&ndash;{{#each ipCollectAddQueryMenu}}&ndash;&gt;-->
+	<!--<div {{#if siteNo}}class="ipCollectAdd-Query-site-json-num queryBg" station="{{station}}" {{/if}} {{#if hiddenSite}}class="ipCollectAdd-Query-site-json-num queryBg-2"{{/if}} class="ipCollectAdd-Query-site-json-num box">-->
+	<!--<div class="ipCollectAdd-Query-site-num-field">-->
+	<!--<label>{{stationCode}}</label>:-->
+	<!--<span class="ipCollectAdd-Query-site-num-field-span">{{exceptionCount}}</span>-->
+	<!--<span style="display:none;">{{hiddenSite}}</span>-->
+	<!--</div>-->
+	<!--&lt;!&ndash;<img src="" alt="" class="ipCollectAdd-link" />&ndash;&gt;-->
+	<!--<div class="ipCollectAdd-link">-->
+	<!---->
+	<!--</div>-->
+	<!--</div>-->
+	<!--&lt;!&ndash;{{/each}}&ndash;&gt;  -->
+	<!--</script>-->

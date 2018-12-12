@@ -1,0 +1,65 @@
+<!--上件指示（批量）页面开始-->
+<div id="queuingMultipleIndication" data-page="pcs_queuingMultipleIndication" class="page bg-gray queuingMultipleIndication assemblyIst">
+    <!--主容器开始-->
+    <div class="page-content" sw-role="cell" sw-mode="y">
+        <!--中间内容开始-->
+        <div sw-role="cell" sw-layout="fit" class="f-oa">
+            <table class="m-product-table">
+                <thead>
+                    <tr>
+                        <td>产品顺序</td>
+                        <td>车型描述</td>
+                        <td>标识号明细</td>
+                        <td>生产管理号</td>
+                    </tr>
+                </thead>
+                <tbody id="m-product-tobdy">
+                </tbody>
+            </table>
+        </div>
+        <!--中间内容结束-->
+
+        <!--下方功能按钮开始-->
+        <div class="m-tool" sw-role="cell">
+
+            <span class="u-quePage" sw-role="cell">
+                <a title="前一页" href="javascript:;"  sw-role="cell"></a>
+                <a title="后一页" href="javascript:;"  sw-role="cell"></a>
+            </span>
+
+            <span title="当前页码" class="u-page" sw-role="cell" sw-flex="1">
+                <span class="u-queue-history">--</span>
+                <span>/</span>
+                <span class="u-queue-now">--</span>
+                <span>/</span>
+                <span class="u-queue-total">--</span>
+            </span>
+
+            <span class="m-sure-cont" sw-flex="4" sw-align="right" sw-role="cell" sw-valign="middle">
+                <a href="javascript:;" class="u-refresh u-selected can-select">刷新</a>
+                <a title="除了当前产品，其他产品不可确认" class="u-queuingSure u-queue-disabled can-select" href="javascript:;" txt-large>上线确认</a>
+            </span>
+
+        </div>
+        <!--下方功能按钮结束-->
+
+        <!--渲染模板开始-->
+        <script type="text/html" id="queuingMultipleTpl">
+            {{#each item}}
+                <tr class="{{#if @root.canCheckFlag}}can-select checked-tr{{/if}} {{#unless @root.canCheckFlag}} disabled-checked{{/unless }}">
+                    <td>
+                        {{#if @root.canCheckFlag}}
+                            <input type="checkbox" checked=true>
+                        {{/if}}
+                        <span>{{@index+1}}</span>
+                    </td>
+                    <td>{{carDescription}}</td>
+                    <td class="productNum" data={{productNum}}>{{js "this.productNum ? this.productNum.slice(-6) : '--'"}}</td>
+                    <td class="productId" data={{productId}}>{{js "this.productId ? this.productId.slice(-5) : '--'"}}</td>
+                </tr>
+            {{/each}}
+        </script>
+    </div>
+    <!--主容器结束-->
+</div>
+<!--上件指示（批量）页面结束-->

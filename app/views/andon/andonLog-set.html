@@ -1,0 +1,110 @@
+<!--ANDON台账侧边栏-->
+<div data-page="andon_andonLog-set" class="page">
+    <!--ANDON右侧收展按钮-->
+    <div class="toggle-right-btn pinch"></div>
+    <div class="page-content">
+        <div class="search-panel">
+            <!--控制按钮区域-->
+            <div class="button-box padding-t-20 padding-b-20 bg-gray">
+                <!--<p class="font-18 margin-t-5 margin-b-15  margin-l-15" data-i18n="COMMON.T.SEARCH_CONTENT"></p>-->
+                <div class="big-item" sw-mode='x-equal'>
+
+                    <a href="#" class="topbar-button button button-fill color-cyan btn-return" name="btnRetrun" data-i18n="COMMON.B.BACK"></a>
+                </div>
+                <div class="big-item" sw-mode='x-equal'>
+                    <a href="#" class="topbar-button button button-fill color-cyan" name="btnSearch" data-i18n="COMMON.B.SEARCH"></a>
+                </div>
+            </div>
+            <!--表单内容-->
+            <form id="andonSetForm">
+                <!--工作中心-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="COMMON.T.WORKCENTER">
+                        </label>
+                        <div class="w100p">
+                            <select  class="form-select-control" id="allWorkCenterListRender" name="workCenterCode"></select>
+                            <script type="text/html" id="allWorkCenterListTpl">
+                                <option value='' data-i18n="COMMON.T.ALL"></option>
+                                {{#each allWorkCenterList}}
+                                    <option value={{workCenterCode}}>{{workCenterText}}</option>
+                                {{/each}}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <!--站点-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="COMMON.T.STATION">
+                        </label>
+                        <div class="w100p" id="stationListContainer">
+                            <select class="form-select-control" id="stationListRender" name="stationCode">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <script type="text/html" id="stationListTpl">
+                            <option value='' data-i18n="COMMON.T.ALL"></option>
+                            {{#each stationList}}
+                            <option value={{stationCode}}>{{stationText}}</option>
+                            {{/each}}
+                        </script>
+                    </div>
+                </div>
+                <!--触发时间-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="ANDON.T.TOUCH_TIME">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="SwitchOnDateTime" class="datetime form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--关闭时间-->
+                <div class="row  no-gutter" >
+                    <div class="col-100 form-group" sw-mode='x-equal'>
+                        <label class="form-label" data-i18n="ANDON.T.CLOSE_TIME">
+                        </label>
+                        <div class="w100p">
+                            <input type="text" name="SwitchOffDateTime" class="datetime form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--andon类型-->
+                <div class="form-check-radio" id="andonTypeRender"></div>
+                <script type="text/html" id="andonTypeTpl">
+                    {{#each allTypeGroup}}
+                    <div class="row  no-gutter" >
+                        <div class="col-100 form-group" sw-mode='x-equal'>
+                            
+                            <label class="form-label w60" {{#if showLabel}} data-i18n="COMMON.T.TYPE" {{/if}}>
+
+                            </label>
+                            
+                            <div class="w100p form-control " sw-valign="middle" sw-role="cell">
+                                {{#each TypeGroup}}
+                                <input type="checkbox" name="typeCode" value={{andonTypeCode}}><label>{{typeText}}</label>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </script>
+                <!--andon状态-->
+                <div class="form-check-radio">
+                    <div class="row  no-gutter" >
+                        <div class="col-100 form-group" sw-mode='x-equal'>
+                            <label class="form-label w60" data-i18n="COMMON.T.STATUS">
+                            </label>
+                            <div class="w100p form-control " sw-valign="middle" sw-role="cell">
+                                <input type="checkbox" name="statusECode" value="1"><label>触发</label>
+                                <input type="checkbox" name="statusECode" value="3"><label>关闭</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
